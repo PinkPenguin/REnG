@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/PinkPenguin/edaa01-workspace/Random Encounter Generator/bin/miglayout-4.0-swing.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

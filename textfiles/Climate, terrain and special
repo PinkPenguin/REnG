@@ -1,0 +1,49 @@
+ARCTIC
+SUB-ARCTIC
+TEMPERATE
+TROPICAL
+----------
+plain(scrub)
+forest
+hill(rough)
+mountain
+swamp
+desert
+subterranean
+aquatic
+sylvan
+---
+land (plain forest hill mountain swamp desert subterranean)
+---
+cold
+warm
+dry
+humid
+jungle (Tropical forest)
+fresh water(lake river)
+remote
+deep(ocean)
+rural
+human areas (urban rural)
+inhabited
+shore(sea coast)
+rivers(fresh water)
+tomb/grave area
+volcanoes(extinct)
+clouds
+(caverns)
+lake(fresh water)
+urban
+groves
+ocean
+water
+islands
+ruins
+wasteland
+wilderness
+labyrinth
+(pool)
+wet
+dungeon
+reef
+dark
