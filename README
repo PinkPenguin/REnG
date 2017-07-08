@@ -1,1 +1,18 @@
-README
+
+Basic instructons:
+
+1. Use the filters on the right hand side of the window to filter the
+creatures you want to include in your generated encounter.
+
+2.1. Generate a random encounter using the "Generate" button.
+or
+2.2. Generate a specific encounter by highlighting a creature type in the left
+most panel and pressing "Add to Encounter". This generates an encounter with
+the selected creature type.
+
+3. Individual creatures can be added to the encounter by pressing the "Add"
+button under the second panel. This opens a new window where specific creature
+information can be entered.
+
+4. The encounter panel can be sperated from the main window by pressing
+"Popout" under the panel. This creates a new window of the current encounter.
