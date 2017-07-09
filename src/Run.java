@@ -45,6 +45,8 @@ public class Run {
 				ct.setHitDice(scan.nextInt());
 				ct.setHitDiceType(scan.nextInt());
 				ct.setHitDiceSpecial(scan.nextInt());
+				
+				ct.setRarity(scan.nextInt());
 
 				/* Add the Creature Type to the general Creature Table */
 				cTable.add(ct);

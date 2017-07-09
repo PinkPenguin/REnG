@@ -11,10 +11,15 @@ public class Encounter {
 
 	}
 
+	public void removeCreature(int index) {
+		crList.remove(index);
+	}
+
 	public void removeAll() {
 		this.crList.clear();
 	}
 
+	// TODO: Shit name for method
 	public void addRandom(Creature cr) {
 
 		this.crList.add(cr);
@@ -27,6 +32,11 @@ public class Encounter {
 		generateEncounterHP(crList);
 
 		// return crList;
+	}
+
+	public void generateEncounter(ArrayList<CreatureType> list) {
+		crList = generateEncounterCreatures(list);
+		generateEncounterHP(crList);
 	}
 
 	public void generateEncounterHP(ArrayList<Creature> crList) {

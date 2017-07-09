@@ -3,7 +3,7 @@ import java.util.Random;
 
 public class CreatureType {
 
-	// TODO: Add 'int creatureWeight'. When generating an encounter, the weight
+	// TODO: (Maybe)Add 'int creatureWeight'. When generating an encounter, the weight
 	// descides how many times an instance of that creature type is put into the
 	// list to roll on.
 
@@ -16,6 +16,11 @@ public class CreatureType {
 	public int hitDice = 0;
 	public int hitDiceType = 0;
 	public int hitDiceSpecial = 0;
+	public int rarity = 0;
+	public static final int COMMON = 1;
+	public static final int UNCOMMON = 2;
+	public static final int RARE = 3;
+	public static final int VERYRARE = 4;
 
 	public CreatureType() {
 
@@ -45,6 +50,9 @@ public class CreatureType {
 
 	public String getName() {
 		return this.name;
+	}
+	public int getRarity() {
+		return rarity;
 	}
 
 	public ArrayList<String> getClimateList() {
@@ -77,6 +85,9 @@ public class CreatureType {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+	public void setRarity(int r){
+		this.rarity = r;
 	}
 
 	public void setClimateList(ArrayList<String> climateList) {

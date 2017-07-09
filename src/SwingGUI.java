@@ -23,12 +23,15 @@ public class SwingGUI extends JFrame {
 
 	private JPopupMenu popupMenu;
 	private JLabel label;
+	private JLabel labelEnc;
 	private JScrollPane sPane;
 	private JScrollPane spEnc;
 	public JList<String> list;
 	public JList<String> listEnc;
 	public Encounter enc = new Encounter();
-	public String selected = "Goblin";
+	public String selType = "Goblin";
+	public String selEnc = "-NONE-";
+	public int selEncIndex = 0;
 
 	private ArrayList<String> fltrList = new ArrayList<String>();
 
@@ -64,14 +67,14 @@ public class SwingGUI extends JFrame {
 
 		this.list = new JList<String>(crType);
 		updateListListener(list);
-		
+
 		sPane = new JScrollPane();
 		sPane.setPreferredSize(new Dimension(222, 1200));
 		sPane.getViewport().add(this.list);
 
 		JButton addToEncounter = new JButton("Add to Encounter");
 		addToEncounter.addActionListener((ActionEvent e) -> {
-			clickAddToEncounter(selected);
+			clickAddToEncounter(selType);
 		});
 
 		JButton generate = new JButton("Generate");
@@ -88,6 +91,9 @@ public class SwingGUI extends JFrame {
 			clickAddCreature();
 		});
 		JButton removeEnc = new JButton("Remove");
+		removeEnc.addActionListener((ActionEvent e) -> {
+			clickRemoveEncounter(selEncIndex);
+		});
 		JButton popout = new JButton("Popout");
 		popout.addActionListener((ActionEvent e) -> {
 			clickPopout(spEnc, listEnc, pane);
@@ -102,6 +108,7 @@ public class SwingGUI extends JFrame {
 		JLabel fill7 = new JLabel("fill");
 
 		label = new JLabel("Creature Types");
+		labelEnc = new JLabel("Creatures");
 
 		JLabel climLabel = new JLabel("Filter by Climate/Terrain:");
 
@@ -183,7 +190,8 @@ public class SwingGUI extends JFrame {
 		// pane.add(new JLabel("hi"), "w 250");
 		pane.add(label, "w 250");
 		pane.add(fill1, "w 250");
-		pane.add(fill2, "w 250");
+		pane.add(labelEnc, "w 250");
+		// pane.add(fill2, "w 250");
 		pane.add(fill3, "w 250, flowy, top");
 
 		pane.add(climLabel, "flowy, aligny top, split 6");
@@ -263,24 +271,78 @@ public class SwingGUI extends JFrame {
 
 	private void clickGenerate() {
 		Random rng = new Random();
-		int selected = rng.nextInt(fltrList.size());
 
-		CreatureType ct = new CreatureType();
-		for (int i = 0; i < CreatureTable.ctypeTable.size(); i++) {
-			if (fltrList.get(selected).equals(CreatureTable.ctypeTable.get(i).getName())) {
-				ct = CreatureTable.ctypeTable.get(i);
+		ArrayList<CreatureType> rarityList = new ArrayList<CreatureType>();
+
+		// number ranging from 1-100
+		int rarity = rng.nextInt(100) + 1;
+
+		int get;
+		if (rarity <= 65) {
+			get = 1;
+		} else if (rarity <= 85) {
+			get = 2;
+		} else if (rarity <= 96) {
+			get = 3;
+		} else {
+			get = 4;
+		}
+
+		System.out.println("Filter List size: " + fltrList.size());
+		for (int i = 0; i < fltrList.size(); i++) {
+			for (int j = 0; j < CreatureTable.ctypeTable.size(); j++) {
+
+				CreatureType ct = CreatureTable.ctypeTable.get(j);
+				if (fltrList.get(i).equals(ct.getName())) {
+					if (get == ct.getRarity()) {
+						rarityList.add(ct);
+
+						break;
+					}
+
+				}
 			}
 		}
 
+		// TODO: Doesnt generateEncounter do this already?
+		int selected = -1;
+		try {
+			selected = rng.nextInt(rarityList.size());
+
+		} catch (IllegalArgumentException e) {
+			JOptionPane.showMessageDialog(null, "List of Creature Types is missing creatures of the randomized rarity. "
+					+ "The first creatures in the list have been added.\nAdd more creatures to the CreatureList or try again.");
+		}
+
 		enc.removeAll();
-		enc.generateEncounter(ct);
+		if (selected >= 0) {
+			enc.generateEncounter(rarityList.get(selected));
+		} else {
+			// Something went wrong with giving "selected" a value, autorolled
+			// whatever is in the first element of the CreatureTable
+			enc.generateEncounter(CreatureTable.ctypeTable.get(0));
+		}
 		listEnc = new JList<String>(enc.print());
 
-		// TODO Make sure that this is seperated from the rest of the listeners,
-		// as in make a new one specifically for this
-		// because right now its competing with the other panel for which thing
-		// is selected ATM
-		updateListListener(listEnc);
+		updateEncListListener(listEnc);
+
+		spEnc.getViewport().add(listEnc);
+		spEnc.getViewport().revalidate();
+		spEnc.getViewport().repaint();
+	}
+
+	private void clickRemoveEncounter(int index) {
+		try {
+			enc.removeCreature(index);
+			// TODO: Think this through, looks like hack to me
+			// selEncIndex = Integer.MAX_VALUE;
+		} catch (IndexOutOfBoundsException e) {
+			// TODO: Deal with error better.
+			System.out.println("No more creatures to remove!");
+		}
+		listEnc = new JList<String>(enc.print());
+
+		updateEncListListener(listEnc);
 
 		spEnc.getViewport().add(listEnc);
 		spEnc.getViewport().revalidate();
@@ -368,7 +430,7 @@ public class SwingGUI extends JFrame {
 			// because right now its competing with the other panel for which
 			// thing
 			// is selected ATM
-			updateListListener(listEnc);
+			updateEncListListener(listEnc);
 
 			spEnc.getViewport().add(listEnc);
 			spEnc.getViewport().revalidate();
@@ -764,13 +826,28 @@ public class SwingGUI extends JFrame {
 	}
 
 	private void updateListListener(JList<String> list) {
+
 		list.addListSelectionListener(new ListSelectionListener() {
 
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				if (!e.getValueIsAdjusting()) {
-					selected = (String) list.getSelectedValue();
-					label.setText(selected);
+					selType = (String) list.getSelectedValue();
+					label.setText(selType);
+				}
+			}
+		});
+	}
+
+	private void updateEncListListener(JList<String> list) {
+		list.addListSelectionListener(new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				if (!e.getValueIsAdjusting()) {
+					selEnc = (String) list.getSelectedValue();
+					selEncIndex = list.getSelectedIndex();
+					labelEnc.setText(selEnc);
 				}
 			}
 		});
