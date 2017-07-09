@@ -100,7 +100,7 @@ public class SwingGUI extends JFrame {
 		});
 
 		JLabel fill1 = new JLabel("fill");
-		JLabel fill2 = new JLabel("fill");
+//		JLabel fill2 = new JLabel("fill");
 		JLabel fill3 = new JLabel("fill");
 		JLabel fill4 = new JLabel("fill");
 		JLabel fill5 = new JLabel("fill");
@@ -240,6 +240,8 @@ public class SwingGUI extends JFrame {
 				spEnc.getViewport().add(listEnc);
 				spEnc.getViewport().revalidate();
 				spEnc.getViewport().repaint();
+				
+				break;
 			}
 		}
 	}
@@ -304,23 +306,21 @@ public class SwingGUI extends JFrame {
 			}
 		}
 
-		// TODO: Doesnt generateEncounter do this already?
+		// TODO: Shouldnt generateEncounter do this already?
 		int selected = -1;
 		try {
 			selected = rng.nextInt(rarityList.size());
 
 		} catch (IllegalArgumentException e) {
-			JOptionPane.showMessageDialog(null, "List of Creature Types is missing creatures of the randomized rarity. "
-					+ "The first creatures in the list have been added.\nAdd more creatures to the CreatureList or try again.");
+			JOptionPane.showMessageDialog(null, "The list of Creature Types is missing creatures of the randomized rarity. "
+					+ "\nAdd more creatures to the CreatureList or try again.");
 		}
 
 		enc.removeAll();
 		if (selected >= 0) {
 			enc.generateEncounter(rarityList.get(selected));
 		} else {
-			// Something went wrong with giving "selected" a value, autorolled
-			// whatever is in the first element of the CreatureTable
-			enc.generateEncounter(CreatureTable.ctypeTable.get(0));
+			return;
 		}
 		listEnc = new JList<String>(enc.print());
 
@@ -335,7 +335,7 @@ public class SwingGUI extends JFrame {
 		try {
 			enc.removeCreature(index);
 			// TODO: Think this through, looks like hack to me
-			// selEncIndex = Integer.MAX_VALUE;
+			selEncIndex = 0;
 		} catch (IndexOutOfBoundsException e) {
 			// TODO: Deal with error better.
 			System.out.println("No more creatures to remove!");
@@ -420,16 +420,8 @@ public class SwingGUI extends JFrame {
 				c = new Creature(boxsel, Integer.parseInt(hpfield.getText()));
 				enc.addRandom(c);
 			}
-
-			// enc.addRandom(c);
 			listEnc = new JList<String>(enc.print());
 
-			// TODO Make sure that this is seperated from the rest of the
-			// listeners,
-			// as in make a new one specifically for this
-			// because right now its competing with the other panel for which
-			// thing
-			// is selected ATM
 			updateEncListListener(listEnc);
 
 			spEnc.getViewport().add(listEnc);
@@ -474,6 +466,8 @@ public class SwingGUI extends JFrame {
 				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
 					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains("plain")) {
 						tempList.add(fltrList.get(j));
+						
+						break;
 					}
 				}
 			}
@@ -508,6 +502,8 @@ public class SwingGUI extends JFrame {
 				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
 					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains("forest")) {
 						tempList.add(fltrList.get(j));
+						
+						break;
 					}
 				}
 			}
@@ -542,6 +538,8 @@ public class SwingGUI extends JFrame {
 				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
 					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains("hill")) {
 						tempList.add(fltrList.get(j));
+						
+						break;
 					}
 				}
 			}
@@ -576,6 +574,8 @@ public class SwingGUI extends JFrame {
 				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
 					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains("mountain")) {
 						tempList.add(fltrList.get(j));
+						
+						break;
 					}
 				}
 			}
@@ -610,6 +610,8 @@ public class SwingGUI extends JFrame {
 				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
 					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains("swamp")) {
 						tempList.add(fltrList.get(j));
+						
+						break;
 					}
 				}
 			}
@@ -644,6 +646,8 @@ public class SwingGUI extends JFrame {
 				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
 					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains("desert")) {
 						tempList.add(fltrList.get(j));
+						
+						break;
 					}
 				}
 			}
@@ -678,6 +682,8 @@ public class SwingGUI extends JFrame {
 				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
 					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains("subterranean")) {
 						tempList.add(fltrList.get(j));
+						
+						break;
 					}
 				}
 			}
@@ -711,6 +717,8 @@ public class SwingGUI extends JFrame {
 				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
 					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains("aquatic")) {
 						tempList.add(fltrList.get(j));
+						
+						break;
 					}
 				}
 			}
