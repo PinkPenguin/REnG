@@ -3,18 +3,21 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
 public class Run {
 
 	public static void main(String[] args) {
 
-		/* Create the general Creature Table for all creatures */
+		/* Create the general/default Creature Table for all creatures */
 		CreatureTable cTable = new CreatureTable();
 		try {
 
 			/*
-			 * Creatures are in file by line in order: Name, number of
-			 * appearence dice, type of appearence dice, no. hit dice, type of
-			 * hit dice, special +/- to hp
+			 * Creatures are in file by line in order: Name, Climate, Number of
+			 * appearing dice, Type of appearing dice, Terrain, Number of HD,
+			 * Type of HD, +/- to health, Rarity 1 being Common and 4 being Very
+			 * Rare
 			 */
 			Scanner scan = new Scanner(new File("textfiles/CreatureList"));
 			while (scan.hasNext()) {
@@ -45,7 +48,7 @@ public class Run {
 				ct.setHitDice(scan.nextInt());
 				ct.setHitDiceType(scan.nextInt());
 				ct.setHitDiceSpecial(scan.nextInt());
-				
+
 				ct.setRarity(scan.nextInt());
 
 				/* Add the Creature Type to the general Creature Table */
@@ -53,15 +56,11 @@ public class Run {
 			}
 			scan.close();
 
-			SwingGUI gui = new SwingGUI("Random Encounter Generator");
-			gui.createAndShowGUI();
-
 		} catch (FileNotFoundException e) {
-			System.out.println("Filerna kunde inte läsas!");
+			JOptionPane.showMessageDialog(null, "The file \"CreatureList.txt\" was not found!");
 		}
 
-		// Encounter enc = new Encounter();
-
+		SwingGUI gui = new SwingGUI("Random Encounter Generator");
+		gui.createAndShowGUI();
 	}
-
 }

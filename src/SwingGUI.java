@@ -1,23 +1,23 @@
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GraphicsEnvironment;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.concurrent.ArrayBlockingQueue;
+import java.util.Scanner;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import net.miginfocom.swing.MigLayout;
-import sun.net.www.content.text.PlainTextInputStream;
 
 public class SwingGUI extends JFrame {
 
@@ -100,7 +100,7 @@ public class SwingGUI extends JFrame {
 		});
 
 		JLabel fill1 = new JLabel("fill");
-//		JLabel fill2 = new JLabel("fill");
+		// JLabel fill2 = new JLabel("fill");
 		JLabel fill3 = new JLabel("fill");
 		JLabel fill4 = new JLabel("fill");
 		JLabel fill5 = new JLabel("fill");
@@ -240,10 +240,11 @@ public class SwingGUI extends JFrame {
 				spEnc.getViewport().add(listEnc);
 				spEnc.getViewport().revalidate();
 				spEnc.getViewport().repaint();
-				
-				break;
+
+				return;
 			}
 		}
+		JOptionPane.showMessageDialog(null, "The selected creature was not found in CreatureList.txt");
 	}
 
 	private void clickPopout(JScrollPane spane, JList<String> list, JPanel pane) {
@@ -290,7 +291,8 @@ public class SwingGUI extends JFrame {
 			get = 4;
 		}
 
-		System.out.println("Filter List size: " + fltrList.size());
+		int found = -1;
+		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < fltrList.size(); i++) {
 			for (int j = 0; j < CreatureTable.ctypeTable.size(); j++) {
 
@@ -298,12 +300,23 @@ public class SwingGUI extends JFrame {
 				if (fltrList.get(i).equals(ct.getName())) {
 					if (get == ct.getRarity()) {
 						rarityList.add(ct);
+						found = 1;
 
 						break;
 					}
-
 				}
 			}
+			if (found < 0) {
+				sb.append(fltrList.get(i));
+				sb.append("\n");
+			}
+			found = -1;
+		}
+		if (sb.length() != 0) {
+			System.out.println(sb.toString());
+			JOptionPane.showMessageDialog(null,
+					"The following Creatures did not have an entry in CreatureList.txt:\n" + sb.toString() + "\nGeneration was aborted.");
+			return;
 		}
 
 		// TODO: Shouldnt generateEncounter do this already?
@@ -312,8 +325,9 @@ public class SwingGUI extends JFrame {
 			selected = rng.nextInt(rarityList.size());
 
 		} catch (IllegalArgumentException e) {
-			JOptionPane.showMessageDialog(null, "The list of Creature Types is missing creatures of the randomized rarity. "
-					+ "\nAdd more creatures to the CreatureList or try again.");
+			JOptionPane.showMessageDialog(null,
+					"The list of Creature Types is missing creatures of the randomized rarity. "
+							+ "\nAdd more creatures to the CreatureList or try again.");
 		}
 
 		enc.removeAll();
@@ -334,11 +348,9 @@ public class SwingGUI extends JFrame {
 	private void clickRemoveEncounter(int index) {
 		try {
 			enc.removeCreature(index);
-			// TODO: Think this through, looks like hack to me
 			selEncIndex = 0;
 		} catch (IndexOutOfBoundsException e) {
-			// TODO: Deal with error better.
-			System.out.println("No more creatures to remove!");
+//			System.out.println("No more creatures to remove!");
 		}
 		listEnc = new JList<String>(enc.print());
 
@@ -406,8 +418,12 @@ public class SwingGUI extends JFrame {
 				warning.setVisible(true);
 				// contains = 2;
 			} else if (warning.isVisible() && !hpfield.getText().equals("")) {
-				// TODO Make sure the hp is actually an INT before doing this
-				c = new Creature(boxsel, Integer.parseInt(hpfield.getText()));
+				try{
+					c = new Creature(boxsel, Integer.parseInt(hpfield.getText()));
+				}catch(NumberFormatException er){
+					JOptionPane.showMessageDialog(null, "Invalid HP input!");
+					return;
+				}
 				enc.addRandom(c);
 			} else if (contains == 1 && hpfield.getText().equals("")) {
 				for (int i = 0; i < CreatureTable.ctypeTable.size(); i++) {
@@ -417,7 +433,13 @@ public class SwingGUI extends JFrame {
 					}
 				}
 			} else if (contains == 1 && !hpfield.getText().equals("")) {
-				c = new Creature(boxsel, Integer.parseInt(hpfield.getText()));
+				try{
+					c = new Creature(boxsel, Integer.parseInt(hpfield.getText()));
+				}catch(NumberFormatException er){
+					JOptionPane.showMessageDialog(null, "Invalid HP input!");
+					return;
+				}
+//				c = new Creature(boxsel, Integer.parseInt(hpfield.getText()));
 				enc.addRandom(c);
 			}
 			listEnc = new JList<String>(enc.print());
@@ -466,7 +488,7 @@ public class SwingGUI extends JFrame {
 				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
 					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains("plain")) {
 						tempList.add(fltrList.get(j));
-						
+
 						break;
 					}
 				}
@@ -502,7 +524,7 @@ public class SwingGUI extends JFrame {
 				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
 					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains("forest")) {
 						tempList.add(fltrList.get(j));
-						
+
 						break;
 					}
 				}
@@ -538,7 +560,7 @@ public class SwingGUI extends JFrame {
 				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
 					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains("hill")) {
 						tempList.add(fltrList.get(j));
-						
+
 						break;
 					}
 				}
@@ -574,7 +596,7 @@ public class SwingGUI extends JFrame {
 				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
 					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains("mountain")) {
 						tempList.add(fltrList.get(j));
-						
+
 						break;
 					}
 				}
@@ -610,7 +632,7 @@ public class SwingGUI extends JFrame {
 				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
 					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains("swamp")) {
 						tempList.add(fltrList.get(j));
-						
+
 						break;
 					}
 				}
@@ -646,7 +668,7 @@ public class SwingGUI extends JFrame {
 				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
 					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains("desert")) {
 						tempList.add(fltrList.get(j));
-						
+
 						break;
 					}
 				}
@@ -682,7 +704,7 @@ public class SwingGUI extends JFrame {
 				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
 					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains("subterranean")) {
 						tempList.add(fltrList.get(j));
-						
+
 						break;
 					}
 				}
@@ -717,7 +739,7 @@ public class SwingGUI extends JFrame {
 				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
 					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains("aquatic")) {
 						tempList.add(fltrList.get(j));
-						
+
 						break;
 					}
 				}
@@ -885,12 +907,70 @@ public class SwingGUI extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		JMenu file = new JMenu("File");
 		JMenuItem exMenuItem = new JMenuItem("Exit");
+		JMenuItem impMenuItem = new JMenuItem("Import List");
+
+		impMenuItem.setToolTipText("Import a filtered Creature List");
+		impMenuItem.addActionListener((ActionEvent e) -> {
+
+			JFileChooser fileChooser = new JFileChooser();
+			fileChooser.setCurrentDirectory(new File(System.getProperty("user.dir")));
+			int result = fileChooser.showOpenDialog(this);
+			FileNameExtensionFilter filter = new FileNameExtensionFilter("TEXT FILES", "txt");
+			fileChooser.setFileFilter(filter);
+
+			if (result == JFileChooser.APPROVE_OPTION) {
+				File selectedFile = fileChooser.getSelectedFile();
+
+				if (filter.accept(selectedFile)) {
+
+					try {
+						Scanner scan = new Scanner(selectedFile);
+						ArrayList<String> temp = new ArrayList<String>();
+						temp = fltrList;
+						fltrList.clear();
+						while (scan.hasNext()) {
+							if (scan.hasNextInt()) {
+								scan.close();
+								fltrList = temp;
+								throw new IllegalArgumentException("The selected file is not a valid Creature List!");
+							}
+							String next = scan.next();
+							if (next.length() >= 70) {
+								scan.close();
+								fltrList = temp;
+								throw new IllegalArgumentException("The selected file is not a valid Creature List!");
+							}
+							fltrList.add(next);
+						}
+						scan.close();
+
+						String[] newList = fltrList.toArray(new String[fltrList.size()]);
+						list = new JList<String>(newList);
+
+						updateListListener(list);
+
+						sPane.getViewport().add(this.list);
+						sPane.getViewport().revalidate();
+						sPane.getViewport().repaint();
+						revalidate();
+					} catch (FileNotFoundException er1) {
+						JOptionPane.showMessageDialog(null, "Ooops! Something went wrong, how embarrassing.");
+					} catch (IllegalArgumentException er2) {
+						JOptionPane.showMessageDialog(null, er2.getMessage());
+					}
+				} else {
+					JOptionPane.showMessageDialog(null,
+							"The selected file was not recognized as a text file.\nMake sure the file has the \".txt\" file extension and try again.");
+				}
+			}
+		});
 
 		exMenuItem.setToolTipText("Exit the application");
 		exMenuItem.addActionListener((ActionEvent e) -> {
 			System.exit(0);
 		});
 
+		file.add(impMenuItem);
 		file.add(exMenuItem);
 		menuBar.add(file);
 

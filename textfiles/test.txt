@@ -1,0 +1,3 @@
+Goblin
+Gnome
+Kobold
