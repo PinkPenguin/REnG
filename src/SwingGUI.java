@@ -14,7 +14,6 @@ import java.util.Scanner;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import net.miginfocom.swing.MigLayout;
@@ -29,8 +28,8 @@ public class SwingGUI extends JFrame {
 	public JList<String> list;
 	public JList<String> listEnc;
 	public Encounter enc = new Encounter();
-	public String selType = "Goblin";
-	public String selEnc = "-NONE-";
+	public String selType = "Creature Type";
+	public String selEnc = "Creature";
 	public int selEncIndex = 0;
 
 	private ArrayList<String> fltrList = new ArrayList<String>();
@@ -122,59 +121,84 @@ public class SwingGUI extends JFrame {
 		JButton aquaB = new JButton("Aquatic");
 
 		plainsB.addActionListener((ActionEvent e) -> {
+			selType = "Creature Type";
+			label.setText(selType);
 			clickPlains(pane);
 		});
 
 		forestB.addActionListener((ActionEvent e) -> {
+			selType = "Creature Type";
+			label.setText(selType);
 			clickForest(pane);
 		});
 
 		hillsB.addActionListener((ActionEvent e) -> {
+			selType = "Creature Type";
+			label.setText(selType);
 			clickHills(pane);
 		});
 
 		mountainsB.addActionListener((ActionEvent e) -> {
+			selType = "Creature Type";
+			label.setText(selType);
 			clickMountains(pane);
 		});
 
 		swampB.addActionListener((ActionEvent e) -> {
+			selType = "Creature Type";
+			label.setText(selType);
 			clickSwamp(pane);
 		});
 
 		desertB.addActionListener((ActionEvent e) -> {
+			selType = "Creature Type";
+			label.setText(selType);
 			clickDesert(pane);
 		});
 
 		subtB.addActionListener((ActionEvent e) -> {
+			selType = "Creature Type";
+			label.setText(selType);
 			clickSubterranian(pane);
 		});
 
 		aquaB.addActionListener((ActionEvent e) -> {
+			selType = "Creature Type";
+			label.setText(selType);
 			clickAquatic(pane);
 		});
 
 		JButton anyButton = new JButton("Any");
 		anyButton.addActionListener((ActionEvent e) -> {
-
+			selType = "Creature Type";
+			label.setText(selType);
 			currC = clickAny(pane);
 		});
 		JButton tropButton = new JButton("Tropical");
 		tropButton.addActionListener((ActionEvent e) -> {
+			selType = "Creature Type";
+			label.setText(selType);
 
 			currC = clickTropical(pane);
 		});
 		JButton tempButton = new JButton("Temperate");
 		tempButton.addActionListener((ActionEvent e) -> {
+			selType = "Creature Type";
+			label.setText(selType);
 
 			currC = clickTemperate(pane);
 		});
 		JButton subaButton = new JButton("Sub-Arctic");
 		subaButton.addActionListener((ActionEvent e) -> {
+			selType = "Creature Type";
+			label.setText(selType);
 
 			currC = clickSubarctic(pane);
 		});
 		JButton arctButton = new JButton("Arctic");
 		arctButton.addActionListener((ActionEvent e) -> {
+			selType = "Creature Type";
+			label.setText(selType);
 
 			currC = clickArctic(pane);
 		});
@@ -298,9 +322,10 @@ public class SwingGUI extends JFrame {
 
 				CreatureType ct = CreatureTable.ctypeTable.get(j);
 				if (fltrList.get(i).equals(ct.getName())) {
+
+					found = 1;
 					if (get == ct.getRarity()) {
 						rarityList.add(ct);
-						found = 1;
 
 						break;
 					}
@@ -314,12 +339,11 @@ public class SwingGUI extends JFrame {
 		}
 		if (sb.length() != 0) {
 			System.out.println(sb.toString());
-			JOptionPane.showMessageDialog(null,
-					"The following Creatures did not have an entry in CreatureList.txt:\n" + sb.toString() + "\nGeneration was aborted.");
+			JOptionPane.showMessageDialog(null, "The following Creatures did not have an entry in CreatureList.txt:\n"
+					+ sb.toString() + "\nGeneration was aborted.");
 			return;
 		}
 
-		// TODO: Shouldnt generateEncounter do this already?
 		int selected = -1;
 		try {
 			selected = rng.nextInt(rarityList.size());
@@ -350,7 +374,7 @@ public class SwingGUI extends JFrame {
 			enc.removeCreature(index);
 			selEncIndex = 0;
 		} catch (IndexOutOfBoundsException e) {
-//			System.out.println("No more creatures to remove!");
+			// System.out.println("No more creatures to remove!");
 		}
 		listEnc = new JList<String>(enc.print());
 
@@ -418,9 +442,9 @@ public class SwingGUI extends JFrame {
 				warning.setVisible(true);
 				// contains = 2;
 			} else if (warning.isVisible() && !hpfield.getText().equals("")) {
-				try{
+				try {
 					c = new Creature(boxsel, Integer.parseInt(hpfield.getText()));
-				}catch(NumberFormatException er){
+				} catch (NumberFormatException er) {
 					JOptionPane.showMessageDialog(null, "Invalid HP input!");
 					return;
 				}
@@ -433,13 +457,14 @@ public class SwingGUI extends JFrame {
 					}
 				}
 			} else if (contains == 1 && !hpfield.getText().equals("")) {
-				try{
+				try {
 					c = new Creature(boxsel, Integer.parseInt(hpfield.getText()));
-				}catch(NumberFormatException er){
+				} catch (NumberFormatException er) {
 					JOptionPane.showMessageDialog(null, "Invalid HP input!");
 					return;
 				}
-//				c = new Creature(boxsel, Integer.parseInt(hpfield.getText()));
+				// c = new Creature(boxsel,
+				// Integer.parseInt(hpfield.getText()));
 				enc.addRandom(c);
 			}
 			listEnc = new JList<String>(enc.print());
@@ -856,9 +881,8 @@ public class SwingGUI extends JFrame {
 	}
 
 	private void updateListListener(JList<String> list) {
-
 		list.addListSelectionListener(new ListSelectionListener() {
-
+			
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				if (!e.getValueIsAdjusting()) {
