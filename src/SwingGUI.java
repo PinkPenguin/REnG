@@ -448,12 +448,13 @@ public class SwingGUI extends JFrame {
 					JOptionPane.showMessageDialog(null, "Invalid HP input!");
 					return;
 				}
-				enc.addRandom(c);
+				enc.addCreature(c);
 			} else if (contains == 1 && hpfield.getText().equals("")) {
 				for (int i = 0; i < CreatureTable.ctypeTable.size(); i++) {
 					if (boxsel.equals(CreatureTable.ctypeTable.get(i).getName())) {
 						c = CreatureTable.ctypeTable.get(i).rollCreature();
-						enc.addRandom(c);
+						enc.addCreature(c);
+						break;
 					}
 				}
 			} else if (contains == 1 && !hpfield.getText().equals("")) {
@@ -465,7 +466,7 @@ public class SwingGUI extends JFrame {
 				}
 				// c = new Creature(boxsel,
 				// Integer.parseInt(hpfield.getText()));
-				enc.addRandom(c);
+				enc.addCreature(c);
 			}
 			listEnc = new JList<String>(enc.print());
 

@@ -20,7 +20,7 @@ public class Encounter {
 	}
 
 	// TODO: Shit name for method
-	public void addRandom(Creature cr) {
+	public void addCreature(Creature cr) {
 
 		this.crList.add(cr);
 	}
