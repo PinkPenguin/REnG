@@ -69,7 +69,6 @@ public class SwingGUI extends JFrame {
 
 		this.list = new JList<String>(crType);
 		updateListListener(list);
-		addListPopMenu(list);
 
 		sPane = new JScrollPane();
 		sPane.setPreferredSize(new Dimension(222, 1200));
@@ -883,33 +882,6 @@ public class SwingGUI extends JFrame {
 		return "ARCTIC";
 	}
 
-	private void updateListListener(JList<String> list) {
-		list.addListSelectionListener(new ListSelectionListener() {
-
-			@Override
-			public void valueChanged(ListSelectionEvent e) {
-				if (!e.getValueIsAdjusting()) {
-					selType = (String) list.getSelectedValue();
-					label.setText(selType);
-				}
-			}
-		});
-	}
-
-	private void updateEncListListener(JList<String> list) {
-		list.addListSelectionListener(new ListSelectionListener() {
-
-			@Override
-			public void valueChanged(ListSelectionEvent e) {
-				if (!e.getValueIsAdjusting()) {
-					selEnc = (String) list.getSelectedValue();
-					selEncIndex = list.getSelectedIndex();
-					labelEnc.setText(selEnc);
-				}
-			}
-		});
-	}
-
 	private void addListPopMenu(JList<String> list) {
 		JPopupMenu pop = new JPopupMenu() {
 			/**
@@ -928,7 +900,7 @@ public class SwingGUI extends JFrame {
 		};
 
 		JMenuItem entry = new JMenuItem("View Entry");
-		// TODO: You know, actually do something here
+		
 		entry.addActionListener((ActionEvent e) -> {
 			JFrame entFrame = new JFrame("Creature Entry");
 			entFrame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -1069,7 +1041,6 @@ public class SwingGUI extends JFrame {
 			sb.append("\n");
 			sb.append("Special Rules (See original monster entry): ");
 			sb.append(ct.getSpRules());
-			
 
 			sb.append("\n");
 			sb.append("\n");
@@ -1091,6 +1062,37 @@ public class SwingGUI extends JFrame {
 
 		list.setComponentPopupMenu(pop);
 	}
+	
+	private void updateListListener(JList<String> list) {
+		list.addListSelectionListener(new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				if (!e.getValueIsAdjusting()) {
+					selType = (String) list.getSelectedValue();
+					label.setText(selType);
+				}
+			}
+		});
+		
+		addListPopMenu(list);
+	}
+
+	private void updateEncListListener(JList<String> list) {
+		list.addListSelectionListener(new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				if (!e.getValueIsAdjusting()) {
+					selEnc = (String) list.getSelectedValue();
+					selEncIndex = list.getSelectedIndex();
+					labelEnc.setText(selEnc);
+				}
+			}
+		});
+	}
+
+	
 
 	private void createPopupMenu() {
 		popupMenu = new JPopupMenu();
