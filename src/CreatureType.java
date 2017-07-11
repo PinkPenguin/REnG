@@ -3,24 +3,40 @@ import java.util.Random;
 
 public class CreatureType {
 
-	// TODO: (Maybe)Add 'int creatureWeight'. When generating an encounter, the weight
-	// descides how many times an instance of that creature type is put into the
-	// list to roll on.
-
 	public String name = "-NONAME-";
 	public ArrayList<String> climateList = new ArrayList<String>();
 	public ArrayList<String> terrainList = new ArrayList<String>();
-	public ArrayList<String> specTerrainList = new ArrayList<String>();
 	public int appDice = 0;
 	public int appDiceType = 0;
 	public int hitDice = 0;
 	public int hitDiceType = 0;
 	public int hitDiceSpecial = 0;
 	public int rarity = 0;
-	public static final int COMMON = 1;
-	public static final int UNCOMMON = 2;
-	public static final int RARE = 3;
-	public static final int VERYRARE = 4;
+//	public static final int COMMON = 1;
+//	public static final int UNCOMMON = 2;
+//	public static final int RARE = 3;
+//	public static final int VERYRARE = 4;
+
+	public ArrayList<String> specTerrainList = new ArrayList<String>();
+	public String organization;
+	public String activityCycle;
+	public String diet;
+	public String intelligence;
+	public String treasure;
+	public String allignment;
+	public String ac;
+	public String movement;
+	public String thac0;
+	public String attacks;
+	public String damage;
+	public String spAttacks;
+	public String spDefences;
+	public String magicRes;
+	public String size;
+	public String morale;
+	public String xp;
+	//spCombat is a yes or no depending on if creature has additional information in combat
+	public String spRules;
 
 	public CreatureType() {
 
@@ -47,6 +63,8 @@ public class CreatureType {
 
 		return new Creature(this.name, hp);
 	}
+	
+	//================== Setters and getters start =====================
 
 	public String getName() {
 		return this.name;
@@ -117,5 +135,156 @@ public class CreatureType {
 	public void setHitDiceSpecial(int hitDiceSpecial) {
 		this.hitDiceSpecial = hitDiceSpecial;
 	}
+	public String getOrganization() {
+		return organization;
+	}
 
+	public String getActivityCycle() {
+		return activityCycle;
+	}
+
+	public String getDiet() {
+		return diet;
+	}
+
+	public String getIntelligence() {
+		return intelligence;
+	}
+
+	public String getTreasure() {
+		return treasure;
+	}
+
+	public String getAllignment() {
+		return allignment;
+	}
+
+	public String getAc() {
+		return ac;
+	}
+
+	public String getMovement() {
+		return movement;
+	}
+
+	public String getThac0() {
+		return thac0;
+	}
+
+	public String getAttacks() {
+		return attacks;
+	}
+
+	public String getDamage() {
+		return damage;
+	}
+
+	public String getSpAttacks() {
+		return spAttacks;
+	}
+
+	public String getSpDefences() {
+		return spDefences;
+	}
+
+	public String getMagicRes() {
+		return magicRes;
+	}
+
+	public String getSize() {
+		return size;
+	}
+
+	public String getMorale() {
+		return morale;
+	}
+
+	public String getXp() {
+		return xp;
+	}
+
+	public String getSpRules() {
+		return spRules;
+	}
+
+	public void setOrganization(String organization) {
+		this.organization = organization;
+	}
+
+	public void setActivityCycle(String activityCycle) {
+		this.activityCycle = activityCycle;
+	}
+
+	public void setDiet(String diet) {
+		this.diet = diet;
+	}
+
+	public void setIntelligence(String intelligence) {
+		this.intelligence = intelligence;
+	}
+
+	public void setTreasure(String treasure) {
+		this.treasure = treasure;
+	}
+
+	public void setAllignment(String allignment) {
+		this.allignment = allignment;
+	}
+
+	public void setAc(String ac) {
+		this.ac = ac;
+	}
+
+	public void setMovement(String movement) {
+		this.movement = movement;
+	}
+
+	public void setThac0(String thac0) {
+		this.thac0 = thac0;
+	}
+
+	public void setAttacks(String attacks) {
+		this.attacks = attacks;
+	}
+
+	public void setDamage(String damage) {
+		this.damage = damage;
+	}
+
+	public void setSpAttacks(String spAttacks) {
+		this.spAttacks = spAttacks;
+	}
+
+	public void setSpDefences(String spDefences) {
+		this.spDefences = spDefences;
+	}
+
+	public void setMagicRes(String magicRes) {
+		this.magicRes = magicRes;
+	}
+
+	public void setSize(String size) {
+		this.size = size;
+	}
+
+	public void setMorale(String morale) {
+		this.morale = morale;
+	}
+
+	public void setXp(String xp) {
+		this.xp = xp;
+	}
+
+	public void setSpRules(String spRules) {
+		this.spRules = spRules;
+	}
+
+	public ArrayList<String> getSpecTerrainList() {
+		return specTerrainList;
+	}
+
+	public void setSpecTerrainList(ArrayList<String> specTerrainList) {
+		this.specTerrainList = specTerrainList;
+	}
+	
 }

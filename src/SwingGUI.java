@@ -1,5 +1,8 @@
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -66,6 +69,7 @@ public class SwingGUI extends JFrame {
 
 		this.list = new JList<String>(crType);
 		updateListListener(list);
+		addListPopMenu(list);
 
 		sPane = new JScrollPane();
 		sPane.setPreferredSize(new Dimension(222, 1200));
@@ -464,8 +468,6 @@ public class SwingGUI extends JFrame {
 					JOptionPane.showMessageDialog(null, "Invalid HP input!");
 					return;
 				}
-				// c = new Creature(boxsel,
-				// Integer.parseInt(hpfield.getText()));
 				enc.addCreature(c);
 			}
 			listEnc = new JList<String>(enc.print());
@@ -883,7 +885,7 @@ public class SwingGUI extends JFrame {
 
 	private void updateListListener(JList<String> list) {
 		list.addListSelectionListener(new ListSelectionListener() {
-			
+
 			@Override
 			public void valueChanged(ListSelectionEvent e) {
 				if (!e.getValueIsAdjusting()) {
@@ -906,6 +908,188 @@ public class SwingGUI extends JFrame {
 				}
 			}
 		});
+	}
+
+	private void addListPopMenu(JList<String> list) {
+		JPopupMenu pop = new JPopupMenu() {
+			/**
+			 * ????????????????
+			 */
+			private static final long serialVersionUID = -4412378649348183793L;
+
+			@Override
+			public void show(Component invoker, int x, int y) {
+				int row = list.locationToIndex(new Point(x, y));
+				if (row != -1) {
+					list.setSelectedIndex(row);
+				}
+				super.show(invoker, x, y);
+			}
+		};
+
+		JMenuItem entry = new JMenuItem("View Entry");
+		// TODO: You know, actually do something here
+		entry.addActionListener((ActionEvent e) -> {
+			JFrame entFrame = new JFrame("Creature Entry");
+			entFrame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+			entFrame.setLocationRelativeTo(null);
+			entFrame.setLayout(new MigLayout());
+			entFrame.setSize(320, 550);
+
+			JPanel panel = new JPanel();
+			JTextArea ta = new JTextArea();
+			StringBuilder sb = new StringBuilder();
+
+			CreatureType ct = new CreatureType();
+
+			for (CreatureType crT : CreatureTable.ctypeTable) {
+				if (list.getSelectedValue().equals(crT.getName())) {
+					ct = crT;
+
+					break;
+				}
+			}
+
+			sb.append(ct.getName().toUpperCase() + "\n\n");
+
+			sb.append("Climate: ");
+			for (String s : ct.getClimateList()) {
+				sb.append(s + ", ");
+			}
+			sb.append("\n");
+			sb.append("Terrain: ");
+			for (int i = 0; i < ct.getTerrainList().size(); i++) {
+				// If the creature has more othan 4 terrains, insert linebreak
+				// and allign with first terrain on previous line
+				if (i == 4) {
+					sb.append("\n               ");
+				}
+				sb.append(ct.getTerrainList().get(i) + ", ");
+			}
+
+			sb.append("\n");
+			sb.append("Frequency: ");
+			switch (ct.getRarity()) {
+			case (1):
+				sb.append("Common");
+				break;
+			case (2):
+				sb.append("Uncommon");
+				break;
+			case (3):
+				sb.append("Rare");
+				break;
+			case (4):
+				sb.append("Very Rare");
+				break;
+			}
+
+			sb.append("\n");
+			sb.append("Organization: ");
+			sb.append(ct.getOrganization());
+
+			sb.append("\n");
+			sb.append("Activity Cycle: ");
+			sb.append(ct.getActivityCycle());
+
+			sb.append("\n");
+			sb.append("Diet: ");
+			sb.append(ct.getDiet());
+
+			sb.append("\n");
+			sb.append("Intelligence: ");
+			sb.append(ct.getIntelligence());
+
+			sb.append("\n");
+			sb.append("Treasure: ");
+			sb.append(ct.getTreasure());
+
+			sb.append("\n");
+			sb.append("Alignment: ");
+			sb.append(ct.getAllignment());
+
+			sb.append("\n");
+			sb.append("No. Appearing: ");
+			sb.append(ct.getAppDice() + "d" + ct.getAppDiceType());
+
+			sb.append("\n");
+			sb.append("Armor Class: ");
+			sb.append(ct.getAc());
+
+			sb.append("\n");
+			sb.append("Movement: ");
+			sb.append(ct.getMovement());
+
+			sb.append("\n");
+			sb.append("Hit Dice: ");
+			sb.append(ct.getHitDice() + "d" + ct.getHitDiceType());
+			if (ct.getHitDiceSpecial() > 0) {
+				sb.append(" +" + ct.getHitDiceSpecial());
+			} else if (ct.getHitDiceSpecial() < 0) {
+				sb.append(" " + ct.getHitDiceSpecial());
+			}
+
+			sb.append("\n");
+			sb.append("THAC0: ");
+			sb.append(ct.getThac0());
+
+			sb.append("\n");
+			sb.append("No. of Attacks: ");
+			sb.append(ct.getAttacks());
+
+			sb.append("\n");
+			sb.append("Damage/Attack: ");
+			sb.append(ct.getDamage());
+
+			sb.append("\n");
+			sb.append("Special Attacks: ");
+			sb.append(ct.getSpAttacks());
+
+			sb.append("\n");
+			sb.append("Special Defenses: ");
+			sb.append(ct.getSpDefences());
+
+			sb.append("\n");
+			sb.append("Magic Resistance: ");
+			sb.append(ct.getMagicRes());
+
+			sb.append("\n");
+			sb.append("Size: ");
+			sb.append(ct.getSize());
+
+			sb.append("\n");
+			sb.append("Morale: ");
+			sb.append(ct.getMorale());
+
+			sb.append("\n");
+			sb.append("XP Value: ");
+			sb.append(ct.getXp());
+
+			sb.append("\n");
+			sb.append("\n");
+			sb.append("Special Rules (See original monster entry): ");
+			sb.append(ct.getSpRules());
+			
+
+			sb.append("\n");
+			sb.append("\n");
+			sb.append("* = Additonal information is listed in the\noriginal creature entry!");
+			
+
+			Font font = ta.getFont();
+			ta.setFont(font.deriveFont(Font.BOLD));
+			ta.setText(sb.toString());
+			ta.setEditable(false);
+			ta.setOpaque(false);
+			panel.add(ta);
+			panel.setOpaque(false);
+			entFrame.add(panel);
+			 entFrame.setResizable(false);
+			entFrame.setVisible(true);
+		});
+		pop.add(entry);
+
+		list.setComponentPopupMenu(pop);
 	}
 
 	private void createPopupMenu() {

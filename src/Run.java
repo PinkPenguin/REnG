@@ -19,7 +19,7 @@ public class Run {
 			 * Type of HD, +/- to health, Rarity 1 being Common and 4 being Very
 			 * Rare
 			 */
-			Scanner scan = new Scanner(new File("textfiles/CreatureList"));
+			Scanner scan = new Scanner(new File("textfiles/CreatureList.txt"));
 			while (scan.hasNext()) {
 
 				/* New Creature Type */
@@ -58,6 +58,41 @@ public class Run {
 
 		} catch (FileNotFoundException e) {
 			JOptionPane.showMessageDialog(null, "The file \"CreatureList.txt\" was not found!");
+		}
+		try {
+			Scanner scan = new Scanner(new File("textfiles/CreatureMisc.txt"));
+			scan.useDelimiter("_");
+			while (scan.hasNext()) {
+				String name = scan.next();
+				for (int i = 0; i < CreatureTable.ctypeTable.size(); i++) {
+					CreatureType ct = CreatureTable.ctypeTable.get(i);
+					if(name.equals(ct.getName())){
+						ct.setOrganization(scan.next());
+						ct.setActivityCycle(scan.next());
+						ct.setDiet(scan.next());
+						ct.setIntelligence(scan.next());
+						ct.setTreasure(scan.next());
+						ct.setAllignment(scan.next());
+						ct.setAc(scan.next());
+						ct.setMovement(scan.next());
+						ct.setThac0(scan.next());
+						ct.setAttacks(scan.next());
+						ct.setDamage(scan.next());
+						ct.setSpAttacks(scan.next());
+						ct.setSpDefences(scan.next());
+						ct.setMagicRes(scan.next());
+						ct.setSize(scan.next());
+						ct.setMorale(scan.next());
+						ct.setXp(scan.next());
+						ct.setSpRules(scan.next());
+						
+						break;
+					}
+				}
+			}
+			scan.close();
+		} catch (FileNotFoundException e) {
+			JOptionPane.showMessageDialog(null, "The file \"CreatureMisc.txt\" was not found!");
 		}
 
 		SwingGUI gui = new SwingGUI("Random Encounter Generator");

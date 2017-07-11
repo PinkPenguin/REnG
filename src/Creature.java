@@ -12,6 +12,8 @@ public class Creature {
 		this.name = name;
 		this.hp = hp;
 	}
+	
+	//================== Setters and getters start =====================
 
 	public void setName(String name){
 		this.name = name;

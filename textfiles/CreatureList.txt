@@ -1,3 +1,4 @@
+Aarakocra Tropical Temperate 1 10 mountains 1 8 2 4
 Goblin Temperate Tropical Sub-Arctic 4 6 plain forest hill mountain swamp subterranean 1 8 -1 2
 Sirine Temperate Tropical 2 4 aquatic 4 8 0 3
 Yeti Arctic 1 6 hill mountain 4 8 4 4
