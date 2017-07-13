@@ -8,14 +8,13 @@ public class CreatureType {
 	public ArrayList<String> terrainList = new ArrayList<String>();
 	public int appDice = 0;
 	public int appDiceType = 0;
+	public int appDiceSpecial = 0;
+	
 	public int hitDice = 0;
 	public int hitDiceType = 0;
 	public int hitDiceSpecial = 0;
+	public int hitDiceVariance = 0;
 	public int rarity = 0;
-//	public static final int COMMON = 1;
-//	public static final int UNCOMMON = 2;
-//	public static final int RARE = 3;
-//	public static final int VERYRARE = 4;
 
 	public ArrayList<String> specTerrainList = new ArrayList<String>();
 	public String organization;
@@ -35,40 +34,48 @@ public class CreatureType {
 	public String size;
 	public String morale;
 	public String xp;
-	//spCombat is a yes or no depending on if creature has additional information in combat
+	// spCombat is a yes or no depending on if creature has additional
+	// information in combat
 	public String spRules;
 
 	public CreatureType() {
 
 	}
 
-	public CreatureType(String name, ArrayList<String> climateList, int appDice, int appDiceType, int hitDice,
-			int hitDiceType, int hitDiceSpecial) {
-		this.name = name;
-		this.climateList = climateList;
-		this.appDice = appDice;
-		this.appDiceType = appDiceType;
-		this.hitDice = hitDice;
-		this.hitDiceType = hitDiceType;
-		this.hitDiceSpecial = hitDiceSpecial;
-	}
+//	public CreatureType(String name, ArrayList<String> climateList, int appDice, int appDiceType, int hitDice,
+//			int hitDiceType, int hitDiceSpecial) {
+//		this.name = name;
+//		this.climateList = climateList;
+//		this.appDice = appDice;
+//		this.appDiceType = appDiceType;
+//		this.hitDice = hitDice;
+//		this.hitDiceType = hitDiceType;
+//		this.hitDiceSpecial = hitDiceSpecial;
+//	}
 
 	public Creature rollCreature() {
 		Random rng = new Random();
 		int hp = 0;
-		for (int i = 1; i <= this.hitDice; i++) {
+		int hd = this.hitDice;
+		System.out.println(hitDiceVariance);
+		if (hitDiceVariance > 0) {
+
+			hd = this.hitDice + rng.nextInt(hitDiceVariance);
+		}
+		for (int i = 1; i <= hd; i++) {
 			hp += rng.nextInt(hitDiceType) - 1;
 		}
 		hp -= this.hitDiceSpecial;
 
-		return new Creature(this.name, hp);
+		return new Creature(this.name, hp, hd);
 	}
-	
-	//================== Setters and getters start =====================
+
+	// ================== Setters and getters start =====================
 
 	public String getName() {
 		return this.name;
 	}
+
 	public int getRarity() {
 		return rarity;
 	}
@@ -104,7 +111,8 @@ public class CreatureType {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void setRarity(int r){
+
+	public void setRarity(int r) {
 		this.rarity = r;
 	}
 
@@ -135,6 +143,7 @@ public class CreatureType {
 	public void setHitDiceSpecial(int hitDiceSpecial) {
 		this.hitDiceSpecial = hitDiceSpecial;
 	}
+
 	public String getOrganization() {
 		return organization;
 	}
@@ -286,5 +295,21 @@ public class CreatureType {
 	public void setSpecTerrainList(ArrayList<String> specTerrainList) {
 		this.specTerrainList = specTerrainList;
 	}
-	
+
+	public int getHitDiceVariance() {
+		return hitDiceVariance;
+	}
+
+	public void setHitDiceVariance(int hitDiceVariance) {
+		this.hitDiceVariance = hitDiceVariance;
+	}
+
+	public int getAppDiceSpecial() {
+		return appDiceSpecial;
+	}
+
+	public void setAppDiceSpecial(int appDiceSpecial) {
+		this.appDiceSpecial = appDiceSpecial;
+	}
+
 }

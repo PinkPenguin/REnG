@@ -44,10 +44,13 @@ public class Encounter {
 			for (int j = 0; j < CreatureTable.ctypeTable.size(); j++) {
 				if (crList.get(i).name.equals(CreatureTable.ctypeTable.get(j).getName())) {
 					int hp = 0;
-					for (int k = 1; k <= CreatureTable.ctypeTable.get(j).getHitDice(); k++) {
+					for (int k = 1; k <= crList.get(i).getHd(); k++) {
 						hp += rng.nextInt(CreatureTable.ctypeTable.get(j).getHitDiceType()) + 1;
 					}
-					hp -= CreatureTable.ctypeTable.get(j).getHitDiceSpecial();
+					hp += CreatureTable.ctypeTable.get(j).getHitDiceSpecial();
+					if(hp <= 0){
+						hp = 1;
+					}
 					crList.get(i).setHP(hp);
 				}
 			}
@@ -56,21 +59,21 @@ public class Encounter {
 
 	public ArrayList<Creature> generateEncounterCreatures(CreatureType ct) {
 
-		// for (int i = 0; i < CreatureTable.ctypeTable.size(); i++) {
-		// if (ct.name.equals(CreatureTable.ctypeTable.get(i).getName())) {
-
 		int no = 0;
 		for (int k = 1; k <= ct.getAppDice(); k++) {
 			no += rng.nextInt(ct.getAppDiceType()) + 1;
 		}
+		no += ct.getAppDiceSpecial();
 
 		// TODO Roll hp here instead!
 		for (int l = 1; l <= no; l++) {
-			crList.add(new Creature(ct.getName(), 0));
-		}
-		// }
-		// }
+			int hd = ct.getHitDice();
+			if(ct.getHitDiceVariance() > 0){
 
+				hd = ct.getHitDice() + rng.nextInt(ct.getHitDiceVariance());
+			}
+			crList.add(new Creature(ct.getName(), 0, hd));
+		}
 		return crList;
 	}
 
@@ -85,7 +88,7 @@ public class Encounter {
 
 				// TODO Roll hp here instead!
 				for (int l = 1; l <= no; l++) {
-					crList.add(new Creature(CreatureTable.ctypeTable.get(j).getName(), 0));
+					crList.add(new Creature(CreatureTable.ctypeTable.get(j).getName(), 0, CreatureTable.ctypeTable.get(j).getHitDice()));
 				}
 			}
 		}
@@ -95,7 +98,7 @@ public class Encounter {
 	public String[] print() {
 		String[] printList = new String[crList.size()];
 		for (int i = 0; i < crList.size(); i++) {
-			printList[i] = crList.get(i).name + ": " + crList.get(i).hp;
+			printList[i] = crList.get(i).name + ": " + crList.get(i).hp + "      HD[" + crList.get(i).getHd() + "]";
 		}
 
 		return printList;

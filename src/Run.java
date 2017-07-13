@@ -37,6 +37,9 @@ public class Run {
 				/* Fill rest of No.App and hit dice numbers */
 				ct.setAppDice(scan.nextInt());
 				ct.setAppDiceType(scan.nextInt());
+				if(scan.hasNextInt()){
+					ct.setAppDiceSpecial(scan.nextInt());
+				}
 
 				/* Add all the terrains to the creature type */
 				ArrayList<String> terrList = new ArrayList<String>();
@@ -48,6 +51,7 @@ public class Run {
 				ct.setHitDice(scan.nextInt());
 				ct.setHitDiceType(scan.nextInt());
 				ct.setHitDiceSpecial(scan.nextInt());
+				ct.setHitDiceVariance(scan.nextInt());
 
 				ct.setRarity(scan.nextInt());
 

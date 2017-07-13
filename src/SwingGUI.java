@@ -422,7 +422,11 @@ public class SwingGUI extends JFrame {
 			array[i] = CreatureTable.ctypeTable.get(i).getName();
 		}
 
-		JComboBox<String> box = new JComboBox<String>(array);
+		JComboBox<String> nameBox = new JComboBox<String>(array);
+		JLabel hdLabel = new JLabel("Hit Dice");
+		JComboBox<Integer> hdBox = new JComboBox<Integer>();
+		hdBox.setSize(35, 15);
+		hdBox.setEditable(true);
 
 		JButton add = new JButton("Add");
 		add.addActionListener((ActionEvent e) -> {
@@ -430,9 +434,9 @@ public class SwingGUI extends JFrame {
 			 * 0= does not contain, 1= contains, 2= does not contain but add
 			 * creature
 			 */
-			Creature c = new Creature("NONE", 0);
+			Creature c = new Creature("NONE", 0, 0);
 			int contains = 0;
-			String boxsel = box.getSelectedItem().toString();
+			String boxsel = nameBox.getSelectedItem().toString();
 
 			for (String cr : array) {
 				if (boxsel.equals(cr)) {
@@ -446,7 +450,7 @@ public class SwingGUI extends JFrame {
 				// contains = 2;
 			} else if (warning.isVisible() && !hpfield.getText().equals("")) {
 				try {
-					c = new Creature(boxsel, Integer.parseInt(hpfield.getText()));
+					c = new Creature(boxsel, Integer.parseInt(hpfield.getText()), 0);
 				} catch (NumberFormatException er) {
 					JOptionPane.showMessageDialog(null, "Invalid HP input!");
 					return;
@@ -462,9 +466,9 @@ public class SwingGUI extends JFrame {
 				}
 			} else if (contains == 1 && !hpfield.getText().equals("")) {
 				try {
-					c = new Creature(boxsel, Integer.parseInt(hpfield.getText()));
+					c = new Creature(boxsel, Integer.parseInt(hpfield.getText()), Integer.parseInt(hdBox.getSelectedItem().toString()));
 				} catch (NumberFormatException er) {
-					JOptionPane.showMessageDialog(null, "Invalid HP input!");
+					JOptionPane.showMessageDialog(null, "Invalid HP or HD input!");
 					return;
 				}
 				enc.addCreature(c);
@@ -479,18 +483,21 @@ public class SwingGUI extends JFrame {
 
 		});
 
-		box.setEditable(true);
+		nameBox.setEditable(true);
 
 		panel.add(namelabel, "split 3, w 130");
 		panel.add(hplabel, "shrink");
 		panel.add(desclabel, "wrap");
 
-		panel.add(box, "split 2");
+		panel.add(nameBox, "split 2");
 		panel.add(hpfield, "wrap");
 		panel.add(warning, "wrap");
 		panel.add(add, "split 2, cell 2 2, right, bottom");
 		panel.add(cancel, "right, bottom");
 
+
+		panel.add(hdBox, "cell 2 1");
+		panel.add(hdLabel, "cell 2 0");
 		frame.add(panel);
 
 		frame.setVisible(true);
@@ -900,11 +907,12 @@ public class SwingGUI extends JFrame {
 		};
 
 		JMenuItem entry = new JMenuItem("View Entry");
-		
+
 		entry.addActionListener((ActionEvent e) -> {
 			JFrame entFrame = new JFrame("Creature Entry");
 			entFrame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-			entFrame.setLocationRelativeTo(null);
+			entFrame.setLocationRelativeTo(this);
+			entFrame.setLocation((int) this.getLocation().getX(), (int) this.getLocation().getY());
 			entFrame.setLayout(new MigLayout());
 			entFrame.setSize(320, 550);
 
@@ -1045,7 +1053,6 @@ public class SwingGUI extends JFrame {
 			sb.append("\n");
 			sb.append("\n");
 			sb.append("* = Additonal information is listed in the\noriginal creature entry!");
-			
 
 			Font font = ta.getFont();
 			ta.setFont(font.deriveFont(Font.BOLD));
@@ -1055,14 +1062,14 @@ public class SwingGUI extends JFrame {
 			panel.add(ta);
 			panel.setOpaque(false);
 			entFrame.add(panel);
-			 entFrame.setResizable(false);
+			entFrame.setResizable(false);
 			entFrame.setVisible(true);
 		});
 		pop.add(entry);
 
 		list.setComponentPopupMenu(pop);
 	}
-	
+
 	private void updateListListener(JList<String> list) {
 		list.addListSelectionListener(new ListSelectionListener() {
 
@@ -1074,7 +1081,7 @@ public class SwingGUI extends JFrame {
 				}
 			}
 		});
-		
+
 		addListPopMenu(list);
 	}
 
@@ -1091,8 +1098,6 @@ public class SwingGUI extends JFrame {
 			}
 		});
 	}
-
-	
 
 	private void createPopupMenu() {
 		popupMenu = new JPopupMenu();

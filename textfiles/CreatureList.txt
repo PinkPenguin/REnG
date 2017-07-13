@@ -1,5 +1,29 @@
-Aarakocra Tropical Temperate 1 10 mountains 1 8 2 4
-Goblin Temperate Tropical Sub-Arctic 4 6 plain forest hill mountain swamp subterranean 1 8 -1 2
-Sirine Temperate Tropical 2 4 aquatic 4 8 0 3
-Yeti Arctic 1 6 hill mountain 4 8 4 4
-Bear(Black) Temperate 1 3 plain forest hill mountain swamp subterranean 3 8 3 1
+Aarakocra Tropical Temperate 1 10 mountains 1 8 2 0 4
+Aboleth Tropical Temperate 1 4 subterranean 8 8 0 0 4
+Ankheg Tropical Temperate 1 6 plain forest 3 8 0 6 3
+Arcane Tropical Temperate Sub-Arctic Arctic 1 1 plain forest hill mountain swamp desert subterranean aquatic 10 8 0 0 4
+Argos Space 1 1 Earth-based-Body 5 8 0 6 4
+Aurumvorax Temperate 1 1 hill 12 8 0 0 4
+Baatezu(PitFiend) The-Nine-Hells 1 4 NONE 13 8 0 0 4
+Baatezu(BlackAbishai) The-Nine-Hells 2 10 NONE 4 8 1 0 1
+Baatezu(GreenAbishai) The-Nine-Hells 2 4 NONE 5 8 2 0 1
+Baatezu(RedAbishai) The-Nine-Hells 1 1 NONE 6 8 3 0 1
+Banshee Tropical Tropical Temperate Sub-Arctic Arctic 1 1 plain forest hill mountain swamp desert subterranean aquatic 7 8 0 0 4
+Basilisk(Lesser) Tropical Temperate Sub-Arctic Arctic 1 4 plain forest hill mountain swamp desert subterranean 6 8 1 0 2
+Basilisk(Greater) Tropical Temperate Sub-Arctic Arctic 2 4 -1 plain forest hill mountain swamp desert subterranean 10 8 0 0 4
+Basilisk(Dracolisk) Tropical Temperate Sub-Arctic Arctic 1 2 plain forest hill mountain swamp desert subterranean 7 8 3 0 4
+Bat(Common) Tropical Temperate Sub-Arctic Arctic 1 100 plain forest hill mountain swamp desert subterranean 1 2 0 0 1
+Bat(Large) Tropical Temperate Sub-Arctic Arctic 3 6 plain forest hill mountain swamp desert subterranean 1 4 0 0 2
+Bat(Huge) Tropical Temperate 1 8 subterranean 1 8 0 3 3
+Bat(Azmyth) Tropical Temperate Sub-Arctic Arctic 1 1 plain forest hill mountain swamp desert subterranean 2 8 0 0 3
+Bat(NightHunter) Tropical Temperate Sub-Arctic Arctic 1 12 plain forest hill mountain swamp desert subterranean 2 8 2 0 2
+Bat(Sinister) Tropical Temperate Sub-Arctic Arctic 1 6 plain forest hill mountain swamp desert subterranean 4 8 4 0 3
+Bear(Black) Temperate 1 3 plain forest hill mountain swamp subterranean 3 8 3 0 1
+Bear(Brown) Temperate 1 6 plain forest hill mountain swamp subterranean 5 8 5 0 2
+Bear(Cave) Tropical Temperate Sub-Arctic Arctic 1 2 plain forest hill mountain swamp subterranean 6 8 6 0 2
+Bear(Polar) Sub-Arctic Arctic 1 6 plain forest hill mountain swamp subterranean aquatic 8 8 8 0 3
+
+
+Goblin Tropical Temperate Sub-Arctic 1 2 plain forest hill mountain swamp subterranean 1 8 -1 0 2
+Sirine Tropical Temperate 2 4 aquatic 4 8 0 0 3
+Yeti Arctic 1 6 hill mountain 4 8 4 0 4
