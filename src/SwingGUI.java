@@ -33,6 +33,7 @@ public class SwingGUI extends JFrame {
 	public Encounter enc = new Encounter();
 	public String selType = "Creature Type";
 	public String selEnc = "Creature";
+	public int selIndex = 0;
 	public int selEncIndex = 0;
 
 	private ArrayList<String> fltrList = new ArrayList<String>();
@@ -377,7 +378,6 @@ public class SwingGUI extends JFrame {
 			enc.removeCreature(index);
 			selEncIndex = 0;
 		} catch (IndexOutOfBoundsException e) {
-			// System.out.println("No more creatures to remove!");
 		}
 		listEnc = new JList<String>(enc.print());
 
@@ -901,11 +901,24 @@ public class SwingGUI extends JFrame {
 				int row = list.locationToIndex(new Point(x, y));
 				if (row != -1) {
 					list.setSelectedIndex(row);
+					selIndex = list.getSelectedIndex();
 				}
 				super.show(invoker, x, y);
 			}
 		};
 
+		JMenuItem remove = new JMenuItem("Remove");
+		remove.addActionListener((ActionEvent e) -> {
+			fltrList.remove(selIndex);
+			
+			this.list = new JList<String>(fltrList.toArray(new String[fltrList.size()]));
+			
+			updateListListener(this.list);
+
+			sPane.getViewport().add(this.list);
+			sPane.getViewport().revalidate();
+			sPane.getViewport().repaint();
+		});
 		JMenuItem entry = new JMenuItem("View Entry");
 
 		entry.addActionListener((ActionEvent e) -> {
@@ -1065,7 +1078,9 @@ public class SwingGUI extends JFrame {
 			entFrame.setResizable(false);
 			entFrame.setVisible(true);
 		});
+		
 		pop.add(entry);
+		pop.add(remove);
 
 		list.setComponentPopupMenu(pop);
 	}
@@ -1077,6 +1092,7 @@ public class SwingGUI extends JFrame {
 			public void valueChanged(ListSelectionEvent e) {
 				if (!e.getValueIsAdjusting()) {
 					selType = (String) list.getSelectedValue();
+					selIndex = list.getSelectedIndex();
 					label.setText(selType);
 				}
 			}

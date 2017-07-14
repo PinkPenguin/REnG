@@ -57,16 +57,19 @@ public class CreatureType {
 		Random rng = new Random();
 		int hp = 0;
 		int hd = this.hitDice;
-		System.out.println(hitDiceVariance);
 		if (hitDiceVariance > 0) {
 
 			hd = this.hitDice + rng.nextInt(hitDiceVariance);
 		}
 		for (int i = 1; i <= hd; i++) {
-			hp += rng.nextInt(hitDiceType) - 1;
+			hp += rng.nextInt(hitDiceType) + 1;
 		}
-		hp -= this.hitDiceSpecial;
+		hp += this.hitDiceSpecial;
 
+		if(hp <= 0){
+			hp = 1;
+		}
+		
 		return new Creature(this.name, hp, hd);
 	}
 

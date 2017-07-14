@@ -8,7 +8,7 @@ Baatezu(PitFiend) The-Nine-Hells 1 4 NONE 13 8 0 0 4
 Baatezu(BlackAbishai) The-Nine-Hells 2 10 NONE 4 8 1 0 1
 Baatezu(GreenAbishai) The-Nine-Hells 2 4 NONE 5 8 2 0 1
 Baatezu(RedAbishai) The-Nine-Hells 1 1 NONE 6 8 3 0 1
-Banshee Tropical Tropical Temperate Sub-Arctic Arctic 1 1 plain forest hill mountain swamp desert subterranean aquatic 7 8 0 0 4
+Banshee Tropical Temperate Sub-Arctic Arctic 1 1 plain forest hill mountain swamp desert subterranean aquatic 7 8 0 0 4
 Basilisk(Lesser) Tropical Temperate Sub-Arctic Arctic 1 4 plain forest hill mountain swamp desert subterranean 6 8 1 0 2
 Basilisk(Greater) Tropical Temperate Sub-Arctic Arctic 2 4 -1 plain forest hill mountain swamp desert subterranean 10 8 0 0 4
 Basilisk(Dracolisk) Tropical Temperate Sub-Arctic Arctic 1 2 plain forest hill mountain swamp desert subterranean 7 8 3 0 4
