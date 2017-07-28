@@ -85,6 +85,7 @@ public class Encounter {
 				for (int k = 1; k <= CreatureTable.ctypeTable.get(j).getAppDice(); k++) {
 					no += rng.nextInt(CreatureTable.ctypeTable.get(j).getAppDiceType()) + 1;
 				}
+				no += CreatureTable.ctypeTable.get(j).getAppDiceSpecial();
 
 				// TODO Roll hp here instead!
 				for (int l = 1; l <= no; l++) {

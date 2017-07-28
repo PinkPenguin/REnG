@@ -102,13 +102,14 @@ public class SwingGUI extends JFrame {
 			clickPopout(spEnc, listEnc, pane);
 		});
 
-		JLabel fill1 = new JLabel("fill");
-		// JLabel fill2 = new JLabel("fill");
-		JLabel fill3 = new JLabel("fill");
-		JLabel fill4 = new JLabel("fill");
-		JLabel fill5 = new JLabel("fill");
-		JLabel fill6 = new JLabel("fill");
-		JLabel fill7 = new JLabel("fill");
+		JLabel fill1 = new JLabel("");
+		JLabel fill2 = new JLabel("");
+		JLabel fill3 = new JLabel("");
+		JLabel fill4 = new JLabel("");
+		JLabel fill5 = new JLabel("");
+		JLabel fill6 = new JLabel("");
+		JLabel fill7 = new JLabel("");
+		JLabel fill8 = new JLabel("");
 
 		label = new JLabel("Creature Types");
 		labelEnc = new JLabel("Creatures");
@@ -117,6 +118,7 @@ public class SwingGUI extends JFrame {
 
 		JButton plainsB = new JButton("Plains");
 		JButton forestB = new JButton("Forest");
+		JButton jungleB = new JButton("Jungle");
 		JButton hillsB = new JButton("Hills");
 		JButton mountainsB = new JButton("Mountains");
 		JButton swampB = new JButton("Swamp");
@@ -136,6 +138,11 @@ public class SwingGUI extends JFrame {
 			clickForest(pane);
 		});
 
+		jungleB.addActionListener((ActionEvent e) -> {
+			selType = "Creature Type";
+			label.setText(selType);
+			clickJungle(pane);
+		});
 		hillsB.addActionListener((ActionEvent e) -> {
 			selType = "Creature Type";
 			label.setText(selType);
@@ -185,6 +192,13 @@ public class SwingGUI extends JFrame {
 
 			currC = clickTropical(pane);
 		});
+		JButton subtropButton = new JButton("Sub-Tropical");
+		subtropButton.addActionListener((ActionEvent e) -> {
+			selType = "Creature Type";
+			label.setText(selType);
+
+			currC = clickSubTropical(pane);
+		});
 		JButton tempButton = new JButton("Temperate");
 		tempButton.addActionListener((ActionEvent e) -> {
 			selType = "Creature Type";
@@ -216,16 +230,18 @@ public class SwingGUI extends JFrame {
 		pane.add(sPane, "span 0 1");
 
 		// pane.add(new JLabel("hi"), "w 250");
-		pane.add(label, "w 250");
+		// pane.add(label, "w 250");
+		pane.add(fill2);
 		pane.add(fill1, "w 250");
-		pane.add(labelEnc, "w 250");
-		// pane.add(fill2, "w 250");
+		// pane.add(labelEnc, "w 250");
+		pane.add(fill8, "w 250");
 		pane.add(fill3, "w 250, flowy, top");
 
-		pane.add(climLabel, "flowy, aligny top, split 6");
+		pane.add(climLabel, "flowy, aligny top, split 7");
 
 		pane.add(anyButton, "right");
 		pane.add(tropButton, "right");
+		pane.add(subtropButton, "right");
 		pane.add(tempButton, "right");
 		pane.add(subaButton, "right");
 		pane.add(arctButton, "right, wrap");
@@ -242,6 +258,7 @@ public class SwingGUI extends JFrame {
 
 		pane.add(plainsB, "flowy, cell 4 0, right");
 		pane.add(forestB, "cell 4 0, right");
+		pane.add(jungleB, "cell 4 0, right");
 		pane.add(hillsB, "cell 4 0, right");
 		pane.add(mountainsB, "cell 4 0, right");
 		pane.add(swampB, "cell 4 0, right");
@@ -466,7 +483,8 @@ public class SwingGUI extends JFrame {
 				}
 			} else if (contains == 1 && !hpfield.getText().equals("")) {
 				try {
-					c = new Creature(boxsel, Integer.parseInt(hpfield.getText()), Integer.parseInt(hdBox.getSelectedItem().toString()));
+					c = new Creature(boxsel, Integer.parseInt(hpfield.getText()),
+							Integer.parseInt(hdBox.getSelectedItem().toString()));
 				} catch (NumberFormatException er) {
 					JOptionPane.showMessageDialog(null, "Invalid HP or HD input!");
 					return;
@@ -495,7 +513,6 @@ public class SwingGUI extends JFrame {
 		panel.add(add, "split 2, cell 2 2, right, bottom");
 		panel.add(cancel, "right, bottom");
 
-
 		panel.add(hdBox, "cell 2 1");
 		panel.add(hdLabel, "cell 2 0");
 		frame.add(panel);
@@ -508,6 +525,8 @@ public class SwingGUI extends JFrame {
 			clickAny(pane);
 		} else if (currC.equals("TROPICAL")) {
 			clickTropical(pane);
+		} else if (currC.equals("SUBTROPICAL")) {
+			clickSubTropical(pane);
 		} else if (currC.equals("TEMPERATE")) {
 			clickTemperate(pane);
 		} else if (currC.equals("SUBARCTIC")) {
@@ -544,6 +563,8 @@ public class SwingGUI extends JFrame {
 			clickAny(pane);
 		} else if (currC.equals("TROPICAL")) {
 			clickTropical(pane);
+		} else if (currC.equals("SUBTROPICAL")) {
+			clickSubTropical(pane);
 		} else if (currC.equals("TEMPERATE")) {
 			clickTemperate(pane);
 		} else if (currC.equals("SUBARCTIC")) {
@@ -574,12 +595,52 @@ public class SwingGUI extends JFrame {
 		sPane.getViewport().add(list);
 
 	}
+	
+	private void clickJungle(JPanel pane) {
+		if (currC.equals("ANY")) {
+			clickAny(pane);
+		} else if (currC.equals("TROPICAL")) {
+			clickTropical(pane);
+		} else if (currC.equals("SUBTROPICAL")) {
+			clickSubTropical(pane);
+		} else if (currC.equals("TEMPERATE")) {
+			clickTemperate(pane);
+		} else if (currC.equals("SUBARCTIC")) {
+			clickSubarctic(pane);
+		} else if (currC.equals("ARCTIC")) {
+			clickArctic(pane);
+		}
+		ArrayList<String> tempList = new ArrayList<String>();
+
+		for (int j = 0; j < fltrList.size(); j++) {
+			for (int i = 0; i < CreatureTable.ctypeTable.size(); i++) {
+				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
+					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains("jungle")) {
+						tempList.add(fltrList.get(j));
+
+						break;
+					}
+				}
+			}
+		}
+
+		fltrList = tempList;
+		String[] newList = fltrList.toArray(new String[fltrList.size()]);
+		this.list = new JList<String>(newList);
+
+		updateListListener(list);
+
+		sPane.getViewport().add(list);
+
+	}
 
 	private void clickHills(JPanel pane) {
 		if (currC.equals("ANY")) {
 			clickAny(pane);
 		} else if (currC.equals("TROPICAL")) {
 			clickTropical(pane);
+		} else if (currC.equals("SUBTROPICAL")) {
+			clickSubTropical(pane);
 		} else if (currC.equals("TEMPERATE")) {
 			clickTemperate(pane);
 		} else if (currC.equals("SUBARCTIC")) {
@@ -616,6 +677,8 @@ public class SwingGUI extends JFrame {
 			clickAny(pane);
 		} else if (currC.equals("TROPICAL")) {
 			clickTropical(pane);
+		} else if (currC.equals("SUBTROPICAL")) {
+			clickSubTropical(pane);
 		} else if (currC.equals("TEMPERATE")) {
 			clickTemperate(pane);
 		} else if (currC.equals("SUBARCTIC")) {
@@ -652,6 +715,8 @@ public class SwingGUI extends JFrame {
 			clickAny(pane);
 		} else if (currC.equals("TROPICAL")) {
 			clickTropical(pane);
+		} else if (currC.equals("SUBTROPICAL")) {
+			clickSubTropical(pane);
 		} else if (currC.equals("TEMPERATE")) {
 			clickTemperate(pane);
 		} else if (currC.equals("SUBARCTIC")) {
@@ -688,6 +753,8 @@ public class SwingGUI extends JFrame {
 			clickAny(pane);
 		} else if (currC.equals("TROPICAL")) {
 			clickTropical(pane);
+		} else if (currC.equals("SUBTROPICAL")) {
+			clickSubTropical(pane);
 		} else if (currC.equals("TEMPERATE")) {
 			clickTemperate(pane);
 		} else if (currC.equals("SUBARCTIC")) {
@@ -724,6 +791,8 @@ public class SwingGUI extends JFrame {
 			clickAny(pane);
 		} else if (currC.equals("TROPICAL")) {
 			clickTropical(pane);
+		} else if (currC.equals("SUBTROPICAL")) {
+			clickSubTropical(pane);
 		} else if (currC.equals("TEMPERATE")) {
 			clickTemperate(pane);
 		} else if (currC.equals("SUBARCTIC")) {
@@ -759,6 +828,8 @@ public class SwingGUI extends JFrame {
 			clickAny(pane);
 		} else if (currC.equals("TROPICAL")) {
 			clickTropical(pane);
+		} else if (currC.equals("SUBTROPICAL")) {
+			clickSubTropical(pane);
 		} else if (currC.equals("TEMPERATE")) {
 			clickTemperate(pane);
 		} else if (currC.equals("SUBARCTIC")) {
@@ -827,6 +898,26 @@ public class SwingGUI extends JFrame {
 		revalidate();
 
 		return "TROPICAL";
+	}
+
+	private String clickSubTropical(JPanel pane) {
+		fltrList.clear();
+		for (CreatureType ct : CreatureTable.ctypeTable) {
+			if (ct.getClimateList().contains("Sub-Tropical")) {
+				fltrList.add(ct.name);
+			}
+		}
+		String[] newList = fltrList.toArray(new String[fltrList.size()]);
+		this.list = new JList<String>(newList);
+
+		updateListListener(list);
+
+		sPane.getViewport().add(this.list);
+		sPane.getViewport().revalidate();
+		sPane.getViewport().repaint();
+		revalidate();
+
+		return "SUBTROPICAL";
 	}
 
 	private String clickTemperate(JPanel pane) {
@@ -910,9 +1001,9 @@ public class SwingGUI extends JFrame {
 		JMenuItem remove = new JMenuItem("Remove");
 		remove.addActionListener((ActionEvent e) -> {
 			fltrList.remove(selIndex);
-			
+
 			this.list = new JList<String>(fltrList.toArray(new String[fltrList.size()]));
-			
+
 			updateListListener(this.list);
 
 			sPane.getViewport().add(this.list);
@@ -1078,7 +1169,7 @@ public class SwingGUI extends JFrame {
 			entFrame.setResizable(false);
 			entFrame.setVisible(true);
 		});
-		
+
 		pop.add(entry);
 		pop.add(remove);
 
