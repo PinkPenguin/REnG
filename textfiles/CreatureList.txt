@@ -180,6 +180,62 @@ Elephant(African) Tropical Sub-Tropical 1 12 plain jungle 11 8 0 0 1
 Elephant(Mammoth) Sub-Arctic 1 12 plain 13 8 0 0 4
 Elephant(Mastodon) Sub-Arctic 1 12 plain 12 8 0 0 4
 Elephant(Oliphant) Temperate Sub-Arctic 1 8 plain forest 8 8 4 0 3
+Elf* Tropical Sub-Tropical Temperate Sub-Arctic 1 6 plain forest jungle hill mountain swamp desert 1 8 1 0 3
+Elf(Grey-Elf)* Tropical Sub-Tropical Temperate 1 6 forest jungle 1 8 1 0 4
+Elf(Wood-Elf)* Tropical Sub-Tropical Temperate 1 8 forest jungle 2 8 1 0 4
+Elf(Half-Elf)* Sub-Tropical Temperate Sub-Arctic Arctic 1 4 plain forest jungle hill mountain swamp desert subterranean 1 8 0 0 3
+Elf(Aquatic)* Temperate 1 4 aquatic salt-water sea 1 8 1 0 4
+Elf(Malenti)* Temperate 1 4 aquatic salt-water sea 1 8 1 0 4
+Elf(Drow)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 2 subterranean underdark 2 8 0 0 4
+Elf(Drider)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 subterranean underdark cave 6 8 6 0 4
+Ettercap Tropical Sub-Tropical Temperate 1 2 forest heavily-wooded-forest 5 8 0 0 3
+Eyewing* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 10 forest subterranean 3 8 0 0 4
+
+Feyr Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 inhabited city 4 8 0 0 4
+Feyr(Great) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean inhabited city 16 8 0 0 4
+Fish(Barracuda) Tropical 2 6 aquatic ocean 1 8 0 2 2
+Fish(Carp,Giant) Tropical Sub-Tropical Temperate 1 4 aquatic fresh-water 8 8 0 5 2
+Fish(Catfish,Giant) Tropical Sub-Tropical Temperate 1 1 aquatic fresh-water 7 8 0 4 3
+Fish(Dragonfish) Sub-Tropical Temperate 1 1 aquatic fresh-water pool 2 8 0 0 3
+Fish(Eel,Electric) Tropical Sub-Tropical 1 3 aquatic fresh-water river 2 8 0 0 3
+Fish(Eel,Giant) Tropical Sub-Tropical 1 4 aquatic salt-water 5 8 0 0 2
+Fish(Eel,Marine) Tropical Sub-Tropical 1 1 aquatic salt-water 6 8 0 3 3
+Fish(Eel,Weed) Tropical Sub-Tropical 10 6 aquatic fresh-water salt-water 1 8 -1 0 4
+Fish(Gar,Giant) Temperate 1 6 aquatic fresh-water salt-water 8 8 0 0 3
+Fish(Lamprey) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 2 aquatic deep-water 1 8 2 0 2
+Fish(Lamprey,Giant) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 aquatic deep-water 5 8 0 0 3
+Fish(Lamprey,Land) Tropical Sub-Tropical Temperate Sub-Arctic 2 6 plain forest jungle hill mountain swamp subterranean 1 8 2 0 2
+Fish(Manta-Ray) Tropical 1 1 aquatic ocean salt-water shallow-water 8 8 0 4 2
+Fish(Pike,Giant) Temperate 1 8 aquatic fresh-water lake 4 8 0 0 3
+Fish(Piranha) Tropical 5 10 aquatic fresh-water river 1 4 0 0 2
+Fish(Piranha,Giant) Tropical 2 10 aquatic fresh-water river 2 8 2 0 4
+Fish(Pungi-Ray) Tropical 1 3 aquatic ocean salt-water shallow-water 4 8 0 0 3
+Fish(Quipper) Temperate 5 10 aquatic fresh-water river 1 4 0 0 2
+Fish(Sea-Horse,Giant) Tropical Sub-Tropical Temperate Sub-Arctic 1 20 aquatic salt-water ocean 2 8 0 3 1
+Fish(Shark) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 3 4 aquatic ocean sea salt-water 3 8 0 6 1
+Fish(Megalodon) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 3 aquatic ocean sea salt-water deep-water 10 8 0 6 3
+Fish(Sting-Ray) Tropical 1 3 aquatic ocean salt-water shallow-water 1 8 0 0 1
+Frog(Giant) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 5 8 aquatic fresh-water 1 8 0 3 2
+Frog(Killer) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 3 6 aquatic fresh-water 1 8 4 0 4
+Frog(Poisonous) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 6 aquatic fresh-water 1 8 0 0 3  
+Fungus(Violet) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 subterranean 3 8 0 0 3
+Fungus(Shrieker) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 4 subterranean 3 8 0 0 1
+Fungus(Phycomid) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 subterranean 5 8 0 0 3
+Fungus(Ascomoid) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 subterranean 6 8 6 0 4
+Fungus(Gas-Spore) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 3 subterranean 1 1 0 0 3
+
+Galeb-Duhr Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 mountain 8 8 0 3 4
+Gargantua(Reptilian) Tropical Sub-Tropical 1 2 forest jungle aquatic island 50 8 0 0 4
+Gargantua(Humanoid) Tropical Sub-Tropical 1 2 forest jungle mountain valley 38 8 0 0 4
+Gargantua(Insectoid) Tropical Sub-Tropical Temperate 1 3 mountain valley 20 8 0 11 4
+Gargoyle Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 8 plain forest jungle hill mountain swamp desert subterranean aquatic ocean 4 8 4 0 2
+Gargoyle(Margoyle) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 4 plain forest jungle hill mountain swamp desert subterranean aquatic ocean 6 8 0 0 3
+Genie(Djinni) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean aquatic 7 8 3 0 4
+Genie(Dao) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain subterranean 8 8 3 0 3
+Genie(Efreeti) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain desert subterranean 10 8 0 0 4
+Genie(Marid) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp subterranean aquatic 13 8 0 0 4
+Genie(Jann) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 2 desert 6 8 2 0 4
+
 
 
 Goblin Tropical Temperate Sub-Arctic 1 2 plain forest hill mountain swamp subterranean 1 8 -1 0 2
