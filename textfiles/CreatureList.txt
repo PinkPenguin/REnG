@@ -235,7 +235,29 @@ Genie(Dao) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest ju
 Genie(Efreeti) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain desert subterranean 10 8 0 0 4
 Genie(Marid) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp subterranean aquatic 13 8 0 0 4
 Genie(Jann) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 2 desert 6 8 2 0 4
-
+Ghost Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean aquatic 10 8 0 0 4
+Ghoul Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 12 plain forest jungle hill mountain swamp subterranean graveyard 2 8 0 0 2
+Ghoul(Lacedon) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 12 aquatic river lake ocean shipwreck 2 8 0 0 4
+Ghoul(Ghast) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 plain forest jungle hill mountain swamp subterranean graveyard 4 8 0 0 3
+Giant(Cloud) Tropical Sub-Tropical 1 10 mountain cloud-island 16 8 4 0 4
+Giant(Cyclopskin) Temperate 1 8 hill mountain 5 8 0 0 3
+Giant(Cyclops) Temperate 1 4 hill mountain 13 8 0 0 4
+Giant(Desert) Tropical Sub-Tropical 2 20 desert 13 8 0 0 4
+Giant(Ettin) Temperate Sub-Arctic 1 1 hill mountain 10 8 0 0 4
+Giant(Firbolg) Temperate 1 4 forest hill 13 8 7 0 4
+Giant(Fire) Tropical Sub-Tropical Temperate 1 8 plain forest jungle hill mountain swamp subterranean vulcano hot-spring 15 8 3 0 3
+Giant(Fog) Temperate 1 4 swamp aquatic coast 14 8 0 0 4
+Giant(Fomorian) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 mountain subterranean 13 8 3 0 2
+Giant(Frost) Arctic 1 8 plain forest jungle hill mountain swamp subterranean 14 8 2 0 4
+Giant(Hill) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 12 hill mountain 12 8 1 0 3
+Giant(Jungle) Tropical 1 1 jungle 11 8 0 0 2
+Giant(Mountain) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 mountain 15 8 3 0 4
+Giant(Reef) Tropical Sub-Tropical 1 1 aquatic ocean reef 18 8 0 0 4
+Giant(Stone) Sub-Tropical Temperate 1 10 mountain 14 8 2 0 3
+Giant(Storm) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 mountain aquatic cloud-island 19 8 3 0 4
+Giant(Verbeeg) Temperate Sub-Arctic Arctic 1 6 hill 5 8 5 0 2
+Giant(Voadkyn)* Sub-Tropical Temperate 1 4 forest jungle 7 8 7 0 4
+Gibberling Temperate 40 10 forest subterranean 1 8 0 0 2
 
 
 Goblin Tropical Temperate Sub-Arctic 1 2 plain forest hill mountain swamp subterranean 1 8 -1 0 2
