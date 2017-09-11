@@ -15,8 +15,11 @@ public class Encounter {
 		crList.remove(index);
 	}
 
+	// TODO: memory leak
 	public void removeAll() {
 		this.crList.clear();
+//		this.crList = new ArrayList<Creature>();
+//		System.gc();
 	}
 
 	// TODO: Shit name for method

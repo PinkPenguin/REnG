@@ -101,6 +101,7 @@ public class SwingGUI extends JFrame {
 		popout.addActionListener((ActionEvent e) -> {
 			clickPopout(spEnc, listEnc, pane);
 		});
+		
 
 		JLabel fill1 = new JLabel("");
 		JLabel fill2 = new JLabel("");
@@ -109,10 +110,11 @@ public class SwingGUI extends JFrame {
 		JLabel fill5 = new JLabel("");
 		JLabel fill6 = new JLabel("");
 		JLabel fill7 = new JLabel("");
-		JLabel fill8 = new JLabel("");
+
+//		JLabel fill8 = new JLabel("Number of Creatures: \n");
 
 		label = new JLabel("Creature Types");
-		labelEnc = new JLabel("Creatures");
+		labelEnc = new JLabel("Number of Creatures: \n");
 
 		JLabel climLabel = new JLabel("Filter by Climate/Terrain:");
 
@@ -234,7 +236,7 @@ public class SwingGUI extends JFrame {
 		pane.add(fill2);
 		pane.add(fill1, "w 250");
 		// pane.add(labelEnc, "w 250");
-		pane.add(fill8, "w 250");
+		pane.add(labelEnc, "w 250");
 		pane.add(fill3, "w 250, flowy, top");
 
 		pane.add(climLabel, "flowy, aligny top, split 7");
@@ -281,6 +283,8 @@ public class SwingGUI extends JFrame {
 
 				enc.generateEncounter(CreatureTable.ctypeTable.get(i));
 				listEnc = new JList<String>(enc.print());
+				labelEnc.setText("Number of Creatures: " + Integer.toString(listEnc.getModel().getSize()));
+//				labelEnc = new JLabel(Integer.toString(listEnc.getModel().getSize()));
 
 				spEnc.getViewport().add(listEnc);
 				spEnc.getViewport().revalidate();
@@ -383,6 +387,8 @@ public class SwingGUI extends JFrame {
 		}
 		listEnc = new JList<String>(enc.print());
 
+		labelEnc.setText("Number of Creatures: " + Integer.toString(listEnc.getModel().getSize()));
+
 		updateEncListListener(listEnc);
 
 		spEnc.getViewport().add(listEnc);
@@ -397,6 +403,8 @@ public class SwingGUI extends JFrame {
 		} catch (IndexOutOfBoundsException e) {
 		}
 		listEnc = new JList<String>(enc.print());
+
+		labelEnc.setText("Number of Creatures: " + Integer.toString(listEnc.getModel().getSize()));
 
 		updateEncListListener(listEnc);
 
@@ -492,6 +500,8 @@ public class SwingGUI extends JFrame {
 				enc.addCreature(c);
 			}
 			listEnc = new JList<String>(enc.print());
+
+			labelEnc.setText("Number of Creatures: " + Integer.toString(listEnc.getModel().getSize()));
 
 			updateEncListListener(listEnc);
 
@@ -1200,7 +1210,8 @@ public class SwingGUI extends JFrame {
 				if (!e.getValueIsAdjusting()) {
 					selEnc = (String) list.getSelectedValue();
 					selEncIndex = list.getSelectedIndex();
-					labelEnc.setText(selEnc);
+//					labelEnc.setText("Number of Creatures: " + Integer.toString(list.getModel().getSize()));
+//					labelEnc.setText(selEnc);
 				}
 			}
 		});

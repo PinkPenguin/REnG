@@ -90,7 +90,7 @@ Cat,Small(Elven) Temperate 1 1 forest 3 8 6 0 3
 Catoblepas Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 2 swamp 6 8 2 0 4
 Cave-Fisher Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 subterranean 3 8 0 0 3
 Centaur Temperate 1 8 forest 4 8 0 0 3
-Centipede(Giant) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 12 plain forest jungle hill mountain swamp desert subterranean 2 1 0 0 1
+Centipede(Giant) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 12 plain forest jungle hill mountain swamp desert subterranean 1 1 1 0 1
 Centipede(Huge) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 5 6 plain forest jungle hill mountain swamp desert subterranean 1 1 0 0 1
 Centipede(Megalo-) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 plain forest jungle hill mountain swamp desert subterranean 3 8 0 0 4
 Centipede(Tunnel) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 6 subterranean 9 8 3 0 3
@@ -189,7 +189,7 @@ Elf(Malenti)* Temperate 1 4 aquatic salt-water sea 1 8 1 0 4
 Elf(Drow)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 2 subterranean underdark 2 8 0 0 4
 Elf(Drider)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 subterranean underdark cave 6 8 6 0 4
 Ettercap Tropical Sub-Tropical Temperate 1 2 forest heavily-wooded-forest 5 8 0 0 3
-Eyewing* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 10 forest subterranean 3 8 0 0 4
+Eyewing* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 10 forest subterranean the-abyss 3 8 0 0 4
 
 Feyr Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 inhabited city 4 8 0 0 4
 Feyr(Great) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean inhabited city 16 8 0 0 4
@@ -258,8 +258,177 @@ Giant(Storm) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 mountain aqua
 Giant(Verbeeg) Temperate Sub-Arctic Arctic 1 6 hill 5 8 5 0 2
 Giant(Voadkyn)* Sub-Tropical Temperate 1 4 forest jungle 7 8 7 0 4
 Gibberling Temperate 40 10 forest subterranean 1 8 0 0 2
+Giff Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 10 10 plain forest jungle hill mountain swamp desert subterranean aquatic 4 8 0 0 3
+Gith Sub-Tropical 3 6 mountain 3 8 0 0 2
+Gith(Pirate)* Tropical Sub-Tropical Temperate 1 21 19 aquatic ocean shore wildspace 7 8 0 5 3
+Githyanki** Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 4 forest jungle mountain swamp astral-plane 3 8 0 6 4
+Githzerai** Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 4 plain forest jungle hill mountain swamp limbo 1 8 0 9 4
+Gloomwing(Moth) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp 5 8 1 0 3
+Gloomwing(Tenebrous-Worm) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 forest 10 8 0 0 2
+Gnoll Tropical Sub-Tropical Temperate 2 6 plain forest jungle hill mountain swamp subterranean ruin 2 8 0 0 2
+Gnoll(Flind) Tropical Sub-Tropical Temperate 1 4 plain forest jungle hill mountain swamp subterranean ruin 2 8 3 0 3
+Gnome(Rock)* Sub-Tropical Temperate Sub-Arctic Arctic 4 3 plain forest jungle hill mountain swamp subterranean 1 8 0 0 3
+Gnome(Svirfneblin) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 4 subterranean underdark 3 8 6 0 4
+Gnome(Tinker)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 12 plain forest hill mountain subterranean 1 8 0 0 3
+Gnome(Forest)* Tropical Sub-Tropical Temperate Sub-Arctic 1 4 forest jungle 2 8 0 0 4
+Gnome(Spriggan)** Sub-Temperate Temperate Sub-Arctic Arctic 3 4 plain forest jungle hill mountain swamp subterranean wilderness 4 8 0 0 4
+Goblin Tropical Sub-Tropical Temperate Sub-Arctic 1 2 plain forest hill mountain swamp subterranean 1 8 -1 0 2
+Golem,Greater(Stone) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean 14 8 0 0 4
+Golem,Greater(Iron) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean 18 8 0 0 4
+Golem,Lesser(Flesh) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean 9 8 0 0 4
+Golem,Lesser(Clay) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean 11 8 0 0 4
+Golem(Bone) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean 14 8 0 0 4
+Golem(Doll) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean 10 8 0 0 4
+Golem(Gargoyle) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean 15 8 0 0 4
+Golem(Glass) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean 9 8 0 0 4
+Golem(Necropphidius) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean 2 8 0 0 4
+Golem(Scarecrow) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean 5 8 0 0 4
+Golem,Stone-Variants(Caryatid-Column) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean 5 8 0 0 4
+Golem,Stone-Variants(Juggernaut) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean 10 8 0 4 4
+Golem,Stone-Variants(Stone-Guardian) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean 4 8 4 0 4
+Gorgon Tropical Sub-Tropical Temperate 1 4 plain forest jungle hill subterranean 8 8 0 0 3
+Grell(Worker) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 10 subterranean 5 8 0 0 3
+Grell(Philosopher) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 2 subterranean 7 8 0 0 4
+Grell(Patriarch) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 subterranean aquatic ocean ship 9 8 0 0 4
+Gremlin Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 6 subterranean inhabited house 4 8 0 0 4
+Gremlin(Fremlin) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 subterranean inhabited house 3 8 6 0 4
+Gremlin(Galltrit)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 subterranean inhabited house dung carrion 2 1 0 0 4
+Gremlin(Mite) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 6 4 subterranean dungeon 1 8 -1 0 3
+Gremlin(Snyad) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 8 subterranean dungeon 1 8 -1 0 2
+Gremlin(Jermlaine) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 12 4 subterranean dungeon 1 4 0 0 2
+Griffon Sub-Tropical Temperate 2 6 hill mountain rocky 7 8 0 0 2
+Grimlock Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 10 mountain subterranean mountainous 2 8 0 0 2
+Grippli Tropical 1 10 jungle swamp 1 8 1 0 3
+
+Hag(Annis)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 3 plain forest jungle hill mountain swamp desert subterranean 7 8 7 0 4
+Hag(Green)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 3 plain forest jungle swamp aquatic river 9 8 0 0 4
+Hag(Sea)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 3 aquatic 3 8 0 0 3
+Halfling(Hairfoot) Sub-Tropical Temperate Sub-Arctic 2 6 plain hill 1 6 0 0 2
+Halfling(Tallfellow) Sub-Tropical Temperate Sub-Arctic 2 6 plain forest hill 1 6 0 0 3
+Halfling(Stout)* Temperate Sub-Arctic Arctic 2 6 hill mountain 1 6 0 0 3
+Harpy Tropical Sub-Tropical Temperate 2 6 mountain swamp aquatic coast 7 8 0 0 3
+Hatori(Lesser) Tropical Sub-Tropical 1 4 1 desert 1 8 0 5 3
+Hatori(Greater) Tropical Sub-Tropical 1 1 desert 6 8 0 15 4
+Haunt Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean 5 8 0 0 4
+Hell-Hound Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 4 plain forest jungle hill mountain swamp desert 4 8 0 4 4
+Heucuva Tropical Sub-Tropical Temperate 1 10 plain forest jungle hill swamp subterranean 2 8 0 0 4
+Hippocampus Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 4 aquatic fresh-water salt-water depths deep 4 8 0 0 3
+Hippogriff Tropical Sub-Tropical Temperate 2 8 plain hill mountain unpopulated 3 8 3 0 3
+Hobgoblin Tropical Sub-Tropical Temperate Sub-Arctic 2 10 plain forest jungle hill mountain swamp subterranean 1 8 1 0 2
+Hobgoblin(Koalinth) Tropical Sub-Tropical Temperate Sub-Arctic 2 10 aquatic fresh-water salt-water cave 1 8 1 0 2
+Homonculous Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean aquatic 2 8 0 0 4
+Hook-Horror Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 6 subterranean dungeon 5 8 0 0 3
+Horse(Wild) Temperate 5 6 plain 2 8 0 0 2
+Horse(Steppe-Pony) Sub-Tropical Temperate 6 4 plain 2 8 2 0 3
+Human(Aborigine/Caveman) Tropical Sub-Tropical Temperate Sub-Arctic 2 6 jungle uninhabited 2 8 0 0 4
+Human(Bandit) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 10 plain forest jungle hill mountain swamp desert subterranean road 1 6 0 0 1
+Human(Barbarian/Nomad) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 30 10 plain forest hill desert 1 6 0 0 4
+Human(Berserker/Dervish) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 3 8 jungle swamp 1 8 0 0 3
+Human(Farmer/Herder) Tropical Sub-Tropical Temperate Sub-Arctic 1 20 plain hill mountain road inhabited town 1 6 0 0 1
+Human(Gentry) Tropical Sub-Tropical Temperate Sub-Arctic 1 20 inhabited road town 1 6 0 0 2
+Human(Knight)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 plain forest jungle hill mountain swamp desert subterranean road town inhabited 1 10 0 12 4
+Human(Mercenary)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 20 -1 plain forest jungle hill mountain swamp desert subterranean road town inhabited uninhabited 1 10 0 3 3
+Human(Merchant-Sailor/Fisherman)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 4 20 aquatic road town port lake ocean pond river 1 6 0 0 1
+Human(Mechant/Trader)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 100 plain road town 1 6 0 0 1
+Human(Middle-Class) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 20 plain forest jungle hill mountain swamp desert subterranean aquatic road town 1 6 0 0 1
+Human(Peasant/Serf)) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 20 plain road town 1 6 0 0 1
+Human(Pilgrim) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 10 10 plain forest jungle hill mountain swamp desert subterranean aquatic road town 1 6 0 0 2
+Human(Pirate) Tropical Sub-Tropical Temperate Sub-Arctic 30 10 aquatic coast ocean sea island 1 6 0 0 1
+Human(Police) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 10 plain forest jungle hill mountain swamp desert subterranean road town 1 6 0 0 2
+Human(Priest) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 8 plain forest jungle hill mountain swamp desert subterranean road 1 8 0 12 4
+Human(Sailor) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 4 20 aquatic ocean coast town port sea 1 6 0 0 1
+Human(Slaver) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 10 plain forest jungle hill mountain swamp desert subterranean aquatic 1 6 0 0 3
+Human(Soldier) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 10 10 inhabited road town patrolled 1 6 0 0 2
+Human(Thief/Thug) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 8 road town 1 6 0 3 1
+Human(Tradesman/Craftsman)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 6 -1 plain forest jungle hill mountain swamp desert subterranean aquatic 1 6 0 0 1
+Human(Tribesman)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 6 plain forest jungle hill mountain swamp desert subterranean aquatic uninhabited island 2 6 0 0 3
+Human(Wizard) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 8 plain forest jungle hill mountain swamp desert subterranean aquatic 1 4 0 12 4
+Hydra* Tropical Sub-Tropical Temperate Sub-Arctic 1 1 swamp subterranean 5 8 0 8 2
+Hydra(Lernaean)* Tropical Sub-Tropical Temperate Sub-Arctic 1 1 swamp subterranean 5 8 0 8 4
+Hydra(Pyrohydra)* Tropical Sub-Tropical 1 1 swamp desert subterranean vulcano 7 8 0 2 3
+Hydra(Cryohydra)* Arctic 1 1 swamp subterranean glacier 5 8 0 4 4
+
+Imp Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean aquatic 2 8 2 0 4
+Imp(Quasit) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain desert swamp subterranean aquatic 3 8 0 0 4
+Imp,Mephit(Fire)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain desert swamp subterranean aquatic 3 8 1 0 4
+Imp,Mephit(Ice)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain desert swamp subterranean aquatic 3 8 0 0 4
+Imp,Mephit(Lava)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain desert swamp subterranean aquatic 3 8 0 0 4
+Imp,Mephit(Mist)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain desert swamp subterranean aquatic 3 8 2 0 4
+Imp,Mephit(Smoke)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain desert swamp subterranean aquatic 3 8 0 0 4
+Imp,Mephit(Steam)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain desert swamp subterranean aquatic 3 8 3 0 4
+Insect(Ant,Giant(Worker))* Tropical Sub-Tropical 1 100 plain forest jungle hill 2 8 0 0 3
+Insect(Ant-Lion,Giant) Tropical Sub-Tropical Arctic 1 1 plain hill mountain 8 8 0 0 3
+Insect(Aratha) Sub-Tropical Temperate 1 1 plain forest jungle hill subterranean 9 8 0 0 3
+Insect(Aspis,Cow) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 subterranean 10 8 0 0 5
+Insect(Aspis,Drone) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 20 plain forest jungle hill subterranean 6 8 0 0 3
+Insect(Aspis,Larva) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 6 10 subterranean 2 8 0 4 5
+Insect(Assassin-Bug) Tropical Sub-Tropical Temperate 2 1 forest jungle hill swamp subterranean 1 8 1 0 3
+Insect(Bee,Worker) Tropical Sub-Tropical Temperate 1 10 plain forest jungle hill mountain swamp 3 8 1 0 3
+Insect(Bee,Soldier) Tropical Sub-Tropical Temperate 1 1 plain forest jungle hill mountain swamp 4 8 2 0 4
+Insect(Bumblebee) Tropical Sub-Tropical Temperate Sub-Arctic 1 1 plain forest jungle hill mountain swamp 6 8 4 0 3
+Insect(Cave-Cricket) Tropical Sub-Tropical Temperate Sub-Arctic 1 8 plain hill subterranean 1 8 3 0 3
+Insect(Dragonfly,Giant) Sub-Tropical Temperate 1 6 forest jungle swamp aquatic 7 8 0 0 3
+Insect(Dragonfly,Larva) Sub-Tropical Temperate 1 1 swamp aquatic fresh-water 6 8 1 0 3
+Insect(Dragonfly,Giant(Tropical)) Tropical 1 6 forest jungle swamp aquatic 8 8 2 0 3
+Insect(Dragonfly,Larva(Tropical)) Tropical 1 1 swamp aquatic fresh-water 7 8 2 0 3
+Insect(Ear-Seeker) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 town urban ruin 1 1 0 0 4
+Insect(Firefriend) Temperate 1 4 plain forest jungle hill mountain swamp 1 8 4 0 4
+Insect(Fly,Bluebottle) Tropical Sub-Tropical Temperate 1 10 plain forest jungle hill mountain swamp 3 8 0 0 3
+Insect(Fly,Horsefly) Tropical Sub-Tropical Temperate Sub-Arctic 1 4 plain forest jungle hill mountain swamp 6 8 0 0 4
+Insect(Fyrefly) Tropical Sub-Tropical Temperate 1 1 forest jungle 1 1 0 0 3
+Insect(Horax) Tropical Sub-Tropical 3 10 subterranean 4 8 0 0 2
+Insect(Horax)* Tropical Sub-Tropical 2 10 plain forest jungle hill mountain desert 4 8 0 0 3
+Insect(Hornet,Giant) Tropical Sub-Tropical Temperate Sub-Arctic 1 1 forest cave 5 8 0 0 2
+Insect(Pernicon) Tropical Sub-Tropical Temperate 4 50 desert 1 1 0 0 3
+Insect(Praying-Mantis) Temperate 1 2 forest jungle 2 8 0 6 3
+Insect(Termite,Giant-Harvester(Worker)) Tropical Sub-Tropical 6 10 forest jungle 1 8 2 0 4
+Insect(Termite,Giant-Harvester(Soldier)) Tropical Sub-Tropical 3 6 forest jungle 2 8 2 0 5
+Insect(Termite,Giant-Harvester(Queen)) Tropical Sub-Tropical 1 1 forest jungle termite-nest 8 8 8 0 5
+Insect(Termite,Giant-Harvester(King)) Tropical Sub-Tropical 1 1 forest jungle termite-nest 6 8 6 0 5
+Insect(Tick,Giant) Temperate 3 12 forest subterranean cave 2 8 0 3 3
+Insect(Wasp,Giant) Tropical Sub-Tropical Temperate Sub-Arctic 1 20 forest cave 4 8 0 0 3
+Insect-Swarm(Velvet-Ants) Tropical Sub-Tropical Temperate 1000 100 plain forest hill 1 1 0 0 4
+Insect-Swarm(Locusts) Tropical Sub-Tropical Temperate 10000 100 plain forest hill 1 1 0 0 4
+Intellect-Devourer(Adult) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 2 subterranean dark 6 8 6 0 4
+Intellect-Devourer(Larva) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 3 subterranean dark moist 3 8 3 0 3
+Invisible-Stalker Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean aquatic 8 8 0 0 4
+Ixitxachitl* Tropical 1 8 4 aquatic shallow fresh-water river 1 8 1 0 4
+
+Jackalwere Temperate 1 4 plain forest jungle hill mountain swamp desert subterranean aquatic town road ruin 4 8 0 0 3
+
+Kenku* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 4 plain forest jungle hill mountain swamp desert subterranean aquatic town road ruin 2 8 0 4 3
+Ki-rin Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean aquatic town road ruin 12 8 0 0 4
+Kirre Tropical Sub-Tropical 1 1 forest 6 8 6 0 3
+Kobold Tropical Sub-Tropical Temperate Sub-Arctic Arctic 5 4 plain forest jungle hill mountain swamp desert subterranean road ruin 1 4 0 0 2
+Kobold(Urd)* Tropical Sub-Tropical Temperate 1 100 hill mountain 2 8 0 4 3
+Kuo-Toa Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 12 underdark aquatic-underdark 2 8 0 0 4
+
+Lamia Tropical Sub-Tropical 1 1 desert desert-cave desert-ruin 9 8 0 0 4
+Lamia(Noble) Tropical Sub-Tropical 1 1 desert desert-cave desert-ruin 10 8 1 0 4
+Lammasu Tropical Sub-Tropical Temperate 2 4 plain forest jungle hill mountain swamp desert subterranean aquatic abandoned-temple 7 8 7 0 3
+Lammasu(S)* Sub-Arctic Arctic 1 4 plain forest jungle hill mountain swamp desert subterranean aquatic abandoned-temple 7 8 7 0 4
+Lammasu(Greater) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 2 plain forest jungle hill mountain swamp desert subterranean aquatic abandoned-temple 12 8 7 0 4
+Leech(Giant) Temperate 4 4 swamp 1 8 0 4 2
+Leech(Throat) Temperate 1 6 swamp 1 1 0 0 1
+Leech(Swarm) Temperate 1 301 199 swamp 1 1 0 0 2
+Leprechaun* Temperate 1 4 sylvan 1 4 1 0 2
+Leucrotta Temperate 1 4 desert wasteland broken-terrain 6 8 1 0 3
+Lich Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 crypt keep castle 11 8 0 3 4
+Lich(Demilich) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 crypt keep castle 50 1 0 0 5
+Living-Wall* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 subterranean basement castle house town crypt dungeon 8 8 0 10 4
+Lizard(Fire) Tropical Sub-Tropical 1 4 plain forest jungle hill mountain swamp desert subterranean 10 8 0 0 4
+Lizard(Giant) Tropical Sub-Tropical 2 6 swamp 3 8 1 0 2
+Lizard(Minotaur) Tropical 1 8 hill mountain 8 8 0 0 3
+Lizard(Subterranean) Tropical Sub-Tropical Temperate 1 6 subterranean cave 6 8 0 0 2
+Lizard-Man Tropical Sub-Tropical Temperate 1 8 7 swamp 2 8 1 0 3
+Lizard-King Tropical Sub-Tropical Temperate 1 1 swamp 8 8 0 0 5
+Locathah* Tropical Sub-Tropical 5 6 aquatic coastal-water 2 8 0 0 3
+Lurker Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 dungeon underdark 10 8 0 0 2
+Lurker(Trapper) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 dungeon underdark cave 12 8 0 0 3
+Lurker(Trapper,Forest) Tropical Sub-Tropical Temperate Sub-Arctic 1 1 dungeon underdark cave 10 8 0 0 3
+Lycanthrope(Seawolf,Lesser) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 3 6 aquatic saltwater beach coast island ocean sea town road 2 8 2 0 4
+Lycanthrope(Seawolf,Greater) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 4 4 aquatic saltwater beach coast island ocean sea town road 9 8 2 0 4
 
 
-Goblin Tropical Temperate Sub-Arctic 1 2 plain forest hill mountain swamp subterranean 1 8 -1 0 2
 Sirine Tropical Temperate 2 4 aquatic 4 8 0 0 3
 Yeti Arctic 1 6 hill mountain 4 8 4 0 4
