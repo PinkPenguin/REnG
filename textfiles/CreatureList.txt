@@ -428,6 +428,66 @@ Lurker(Trapper) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 dungeon un
 Lurker(Trapper,Forest) Tropical Sub-Tropical Temperate Sub-Arctic 1 1 dungeon underdark cave 10 8 0 0 3
 Lycanthrope(Seawolf,Lesser) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 3 6 aquatic saltwater beach coast island ocean sea town road 2 8 2 0 4
 Lycanthrope(Seawolf,Greater) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 4 4 aquatic saltwater beach coast island ocean sea town road 9 8 2 0 4
+Lycanthrope(Werebat) Tropical 1 4 forest cave 4 8 2 0 3
+Lycanthrope(Werebear) Temperate Sub-Arctic Arctic 1 4 plain forest hill mountain remote road town house 7 8 3 0 3
+Lycanthrope(Wereboar)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 8 plain forest jungle hill mountain swamp desert subterranean cave 5 8 2 0 3
+Lycanthrope(Werefox(Foxwoman)) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 forest house cave 8 8 1 0 4
+Lycanthrope(Wererat) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 4 6 sewer catacombs 3 8 1 0 2
+Lycanthrope(Wererat(Town))* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 4 town 3 8 1 0 2
+Lycanthrope(Wereraven) Temperate 2 4 forest jungle 4 8 2 0 2
+Lycanthrope(Weretiger) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 6 plain forest jungle hill mountain swamp town road house wilderness 6 8 2 0 4
+Lycanthrope(Werewolf)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 20  plain forest jungle hill mountain swamp town road house 4 8 3 0 3
+
+Mammal(Ape,Carnivorous) Tropical 2 4 plain forest jungle hill 5 8 0 0 3
+Mammal(Baboon,Wild) Tropical Sub-Tropical 10 4 plain forest jungle mountain 1 8 1 0 1
+Mammal(Badger) Temperate 1 4 1 plain forest mountain swamp 1 8 2 0 2
+Mammal(Badger,Giant)* Temperate 1 4 1 plain forest mountain swamp 3 8 0 0 2
+Mammal(Banderlog) Tropical Sub-Tropical 4 6 forest jungle 4 8 0 0 4
+Mammal(Bhaergala) Tropical Sub-Tropical Temperate 1 1 forest jungle 4 8 4 0 3
+Mammal(Boar,Wild) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 12 plain forest jungle hill mountain swamp desert subterranean cave 3 8 3 0 1
+Mammal(Boar,Giant(Elothere))* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 4 plain forest jungle hill mountain swamp desert subterranean cave 7 8 0 0 2
+Mammal(Chattur) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 12 plain forest jungle hill mountain swamp desert subterranean aquatic 1 8 -1 0 1
+Mammal(Cooshee)* Tropical Sub-Tropical Temperate Sub-Arctic 1 8 forest jungle 3 8 3 0 3
+Mammal(Dakon) Tropical Sub-Tropical 6 10 forest jungle 1 8 1 0 2
+Mammal(Debbi) Tropical Sub-Tropical 1 8 desert 1 8 1 0 2
+Mammal(Goat) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 5 20 plain hill mountain 1 8 2 0 2
+Mammal(Gorilla) Tropical Sub-Tropical 1 4 forest 4 8 1 0 4
+Mammal(Hsing-Sing) Sub-Tropical 2 10 forest mountain 2 8 1 0 3
+Mammal(Hyena) Tropical Sub-Tropical 2 6 plain 3 8 0 0 1
+Mammal(Hyaenodon)* Tropical Sub-Tropical 2 4 plain 5 8 0 0 4
+Mammal(Jackal) Tropical Sub-Tropical 1 6 plain desert 1 4 0 0 1
+Mammal(Losel)* Sub-Tropical Temperate Sub-Arctic Arctic 3 10 forest 2 8 0 0 3
+Mammal(Monkey-Spider) Tropical 20 3 jungle 1 2 0 0 3
+Mammal(Porcupine,Black) Temperate 1 2 forest 1 4 0 0 1
+Mammal(Porcupine,Brown) Temperate 1 2 forest 1 4 0 0 1
+Mammal(Porcupine,Giant)* Temperate 1 2 forest 6 8 0 0 2
+Mammal(Rothé) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 10 subterranean underdark 2 8 0 0 2
+Mammal(Skunk)* Sub-Tropical Temperate 1 1 forest 1 2 0 0 1
+Mammal(Skunk,Giant)* Sub-Tropical Temperate 1 1 forest 5 8 0 0 2
+Mammal(Sleek)* Temperate 1 10 forest subterranean ship 2 8 1 0 2
+Mammal(Stag,Wild) Temperate 1 4 plain forest hill mountain 3 8 0 0 1
+Mammal(Stag,Giant)* Temperate 1 2 plain forest hill mountain 5 8 0 0 3
+Mammal(Stag,The-White-Stag)* Temperate 1 1 plain forest hill mountain 10 8 0 0 4
+Mammal(Stench-Kow)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 15 4 The-Nine-Hells 3 8 3 0 1
+Mammal(Taer)* Sub-Arctic Arctic 2 10 mountain 3 8 6 0 4
+Mammal(Tyrg)* Tropical Sub-Tropical Temperate Sub-Arctic 1 10 forest hill mountain 5 8 0 4 3
+Mammal(Boar,Warthog) Tropical Sub-Tropical 1 6 plain forest hill desert subterranean cave 3 8 0 0 1
+Mammal(Weasel) Temperate 1 2 forest subterranean 1 4 0 0 2
+Mammal(Weasel,Giant)* Sub-Tropical Temperate Sub-Arctic 1 8 forest subterranean 3 8 3 0 3
+Mammal(Wolverine) Sub-Arctic Arctic 1 1 forest 3 8 0 0 2
+Mammal(Wolverine,Giant)* Sub-Arctic Arctic 1 1 forest 4 8 4 0 3
+Mammal,Herd(Camel) Tropical Sub-Tropical Temperate 1 12 plain desert 3 8 0 0 1
+Mammal,Herd(Cattle) Tropical Sub-Tropical Temperate 20 10 plain hill 1 8 0 4 1
+Mammal,Herd(Buffalo) Tropical Sub-Tropical Temperate 4 6 plain 5 8 0 0 2
+Mammal,Herd(Antelope) Tropical Sub-Tropical Temperate 4 6 plain 2 8 0 0 1
+Mammal,Herd(Sheep) Tropical Sub-Tropical Temperate Sub-Arctic 10 10 plain hill mountain 2 8 0 0 1
+Mammal,Small(Beaver)* Temperate Sub-Arctic 4 10 forest aquatic river stream lake 1 4 0 0 1
+Mammal(Beaver,Giant)* Temperate Sub-Arctic 2 10 forest aquatic river stream lake 4 8 0 0 2
+Mammal,Small(Chipmunk)* Sub-Tropical Temperate Sub-Arctic 1 6 forest 1 1 0 0 1
+Mammal,Small(Ermine)* Temperate Sub-Arctic 1 2 plain forest hill 1 8 0 0 1
+Mammal,Small(Ferret)* Sub-Tropical Temperate Sub-Arctic 1 2 plain forest hill 1 8 0 0 1
+Mammal,Small(Fox)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 2 plain forest hill 1 8 0 0 1
+Mammal,Small(Gopher)* Sub-Tropical Temperate Sub-Arctic 1 20 plain forest hill 1 3 0 0 1
 
 
 Sirine Tropical Temperate 2 4 aquatic 4 8 0 0 3
