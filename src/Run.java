@@ -54,6 +54,8 @@ public class Run {
 				ct.setHitDiceVariance(scan.nextInt());
 
 				ct.setRarity(scan.nextInt());
+				
+				ct.setActivityCycle(scan.next());
 
 				/* Add the Creature Type to the general Creature Table */
 				cTable.add(ct);

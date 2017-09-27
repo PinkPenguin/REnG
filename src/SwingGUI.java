@@ -38,7 +38,9 @@ public class SwingGUI extends JFrame {
 
 	private ArrayList<String> fltrList = new ArrayList<String>();
 
-	private String currC = "ANY";
+	private String currClimate = "ANY";
+	private String currTerrain = "ANY";
+	private String currActivity = "ANY";
 
 	private static final long serialVersionUID = 1L;
 
@@ -101,22 +103,43 @@ public class SwingGUI extends JFrame {
 		popout.addActionListener((ActionEvent e) -> {
 			clickPopout(spEnc, listEnc, pane);
 		});
-		
 
-		JLabel fill1 = new JLabel("");
-		JLabel fill2 = new JLabel("");
-		JLabel fill3 = new JLabel("");
-		JLabel fill4 = new JLabel("");
-		JLabel fill5 = new JLabel("");
-		JLabel fill6 = new JLabel("");
-		JLabel fill7 = new JLabel("");
+		JLabel fill1 = new JLabel("fill1");
+		JLabel fill2 = new JLabel("fill2");
+		JLabel fill4 = new JLabel("fill4");
+		JLabel fill5 = new JLabel("fill5");
+		JLabel fill6 = new JLabel("fill6");
+		JLabel fill7 = new JLabel("fill7");
 
-//		JLabel fill8 = new JLabel("Number of Creatures: \n");
+		JLabel fill3 = new JLabel("fill3");
+		JLabel fill8 = new JLabel("fill8");
+		// JLabel fill9 = new JLabel("fill9");
+		// JLabel fill10 = new JLabel("fill10");
+		// JLabel fill11 = new JLabel("fill11");
+		// JLabel fill12 = new JLabel("fill12");
+		// JLabel fill13 = new JLabel("fill13");
+
+		// JLabel fill8 = new JLabel("Number of Creatures: \n");
 
 		label = new JLabel("Creature Types");
-		labelEnc = new JLabel("Number of Creatures: \n");
+		labelEnc = new JLabel("Creatures: \n");
 
-		JLabel climLabel = new JLabel("Filter by Climate/Terrain:");
+		JLabel activityLabel = new JLabel("Activity Cycle:");
+
+		JButton activityDay = new JButton("Day");
+		activityDay.addActionListener((ActionEvent e) -> {
+			currActivity = clickDayActivity(pane);
+		});
+		JButton activityAny = new JButton("Any");
+		activityAny.addActionListener((ActionEvent e) -> {
+			currActivity = clickAnyActivity(pane);
+		});
+		JButton activityNight = new JButton("Night");
+		activityNight.addActionListener((ActionEvent e) -> {
+			currActivity = clickNightActivity(pane);
+		});
+
+		JLabel climLabel = new JLabel("Filter Climate/Terrain:");
 
 		JButton plainsB = new JButton("Plains");
 		JButton forestB = new JButton("Forest");
@@ -185,42 +208,42 @@ public class SwingGUI extends JFrame {
 		anyButton.addActionListener((ActionEvent e) -> {
 			selType = "Creature Type";
 			label.setText(selType);
-			currC = clickAny(pane);
+			currClimate = clickAny(pane);
 		});
 		JButton tropButton = new JButton("Tropical");
 		tropButton.addActionListener((ActionEvent e) -> {
 			selType = "Creature Type";
 			label.setText(selType);
 
-			currC = clickTropical(pane);
+			currClimate = clickTropical(pane);
 		});
 		JButton subtropButton = new JButton("Sub-Tropical");
 		subtropButton.addActionListener((ActionEvent e) -> {
 			selType = "Creature Type";
 			label.setText(selType);
 
-			currC = clickSubTropical(pane);
+			currClimate = clickSubTropical(pane);
 		});
 		JButton tempButton = new JButton("Temperate");
 		tempButton.addActionListener((ActionEvent e) -> {
 			selType = "Creature Type";
 			label.setText(selType);
 
-			currC = clickTemperate(pane);
+			currClimate = clickTemperate(pane);
 		});
 		JButton subaButton = new JButton("Sub-Arctic");
 		subaButton.addActionListener((ActionEvent e) -> {
 			selType = "Creature Type";
 			label.setText(selType);
 
-			currC = clickSubarctic(pane);
+			currClimate = clickSubarctic(pane);
 		});
 		JButton arctButton = new JButton("Arctic");
 		arctButton.addActionListener((ActionEvent e) -> {
 			selType = "Creature Type";
 			label.setText(selType);
 
-			currC = clickArctic(pane);
+			currClimate = clickArctic(pane);
 		});
 
 		JButton quitButton = new JButton("Quit");
@@ -233,11 +256,17 @@ public class SwingGUI extends JFrame {
 
 		// pane.add(new JLabel("hi"), "w 250");
 		// pane.add(label, "w 250");
-		pane.add(fill2);
-		pane.add(fill1, "w 250");
+		pane.add(fill1);
+		pane.add(fill2, "w 250");
 		// pane.add(labelEnc, "w 250");
 		pane.add(labelEnc, "w 250");
-		pane.add(fill3, "w 250, flowy, top");
+
+		pane.add(activityLabel, "flowy, aligny top, right, split 4");
+		pane.add(activityDay, "right");
+		pane.add(activityAny, "right");
+		pane.add(activityNight, "right");
+
+		pane.add(fill3, "flowy, aligny top, right");
 
 		pane.add(climLabel, "flowy, aligny top, split 7");
 
@@ -255,20 +284,21 @@ public class SwingGUI extends JFrame {
 		pane.add(fill5, "w 250");
 		pane.add(fill6, "w 250");
 		pane.add(fill7, "w 250");
+		pane.add(fill8, "w 250");
 
 		pane.add(quitButton, "right");
 
-		pane.add(plainsB, "flowy, cell 4 0, right");
-		pane.add(forestB, "cell 4 0, right");
-		pane.add(jungleB, "cell 4 0, right");
-		pane.add(hillsB, "cell 4 0, right");
-		pane.add(mountainsB, "cell 4 0, right");
-		pane.add(swampB, "cell 4 0, right");
-		pane.add(desertB, "cell 4 0, right");
-		pane.add(subtB, "cell 4 0, right");
-		pane.add(aquaB, "cell 4 0, right");
+		pane.add(plainsB, "flowy, cell 5 0, right");
+		pane.add(forestB, "cell 5 0, right");
+		pane.add(jungleB, "cell 5 0, right");
+		pane.add(hillsB, "cell 5 0, right");
+		pane.add(mountainsB, "cell 5 0, right");
+		pane.add(swampB, "cell 5 0, right");
+		pane.add(desertB, "cell 5 0, right");
+		pane.add(subtB, "cell 5 0, right");
+		pane.add(aquaB, "cell 5 0, right");
 
-		pane.add(spEnc, "flowy, cell 2 0");
+		pane.add(spEnc, "flowy, left, cell 2 0");
 		pane.add(addEnc, "split 3, cell 2 1");
 		pane.add(removeEnc, "cell 2 1");
 		pane.add(popout, "cell 2 1");
@@ -284,7 +314,8 @@ public class SwingGUI extends JFrame {
 				enc.generateEncounter(CreatureTable.ctypeTable.get(i));
 				listEnc = new JList<String>(enc.print());
 				labelEnc.setText("Number of Creatures: " + Integer.toString(listEnc.getModel().getSize()));
-//				labelEnc = new JLabel(Integer.toString(listEnc.getModel().getSize()));
+				// labelEnc = new
+				// JLabel(Integer.toString(listEnc.getModel().getSize()));
 
 				spEnc.getViewport().add(listEnc);
 				spEnc.getViewport().revalidate();
@@ -387,7 +418,7 @@ public class SwingGUI extends JFrame {
 		}
 		listEnc = new JList<String>(enc.print());
 
-		labelEnc.setText("Number of Creatures: " + Integer.toString(listEnc.getModel().getSize()));
+		labelEnc.setText("Creatures: " + Integer.toString(listEnc.getModel().getSize()));
 
 		updateEncListListener(listEnc);
 
@@ -418,7 +449,7 @@ public class SwingGUI extends JFrame {
 		JFrame frame = new JFrame("Add Creature");
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.setLayout(new MigLayout());
-		frame.setSize(new Dimension(420, 150));
+		frame.setSize(new Dimension(520, 150));
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 
@@ -501,7 +532,7 @@ public class SwingGUI extends JFrame {
 			}
 			listEnc = new JList<String>(enc.print());
 
-			labelEnc.setText("Number of Creatures: " + Integer.toString(listEnc.getModel().getSize()));
+			labelEnc.setText("Creatures: " + Integer.toString(listEnc.getModel().getSize()));
 
 			updateEncListListener(listEnc);
 
@@ -531,17 +562,17 @@ public class SwingGUI extends JFrame {
 	}
 
 	private void clickPlains(JPanel pane) {
-		if (currC.equals("ANY")) {
+		if (currClimate.equals("ANY")) {
 			clickAny(pane);
-		} else if (currC.equals("TROPICAL")) {
+		} else if (currClimate.equals("TROPICAL")) {
 			clickTropical(pane);
-		} else if (currC.equals("SUBTROPICAL")) {
+		} else if (currClimate.equals("SUBTROPICAL")) {
 			clickSubTropical(pane);
-		} else if (currC.equals("TEMPERATE")) {
+		} else if (currClimate.equals("TEMPERATE")) {
 			clickTemperate(pane);
-		} else if (currC.equals("SUBARCTIC")) {
+		} else if (currClimate.equals("SUBARCTIC")) {
 			clickSubarctic(pane);
-		} else if (currC.equals("ARCTIC")) {
+		} else if (currClimate.equals("ARCTIC")) {
 			clickArctic(pane);
 		}
 		ArrayList<String> tempList = new ArrayList<String>();
@@ -569,17 +600,17 @@ public class SwingGUI extends JFrame {
 	}
 
 	private void clickForest(JPanel pane) {
-		if (currC.equals("ANY")) {
+		if (currClimate.equals("ANY")) {
 			clickAny(pane);
-		} else if (currC.equals("TROPICAL")) {
+		} else if (currClimate.equals("TROPICAL")) {
 			clickTropical(pane);
-		} else if (currC.equals("SUBTROPICAL")) {
+		} else if (currClimate.equals("SUBTROPICAL")) {
 			clickSubTropical(pane);
-		} else if (currC.equals("TEMPERATE")) {
+		} else if (currClimate.equals("TEMPERATE")) {
 			clickTemperate(pane);
-		} else if (currC.equals("SUBARCTIC")) {
+		} else if (currClimate.equals("SUBARCTIC")) {
 			clickSubarctic(pane);
-		} else if (currC.equals("ARCTIC")) {
+		} else if (currClimate.equals("ARCTIC")) {
 			clickArctic(pane);
 		}
 		ArrayList<String> tempList = new ArrayList<String>();
@@ -605,19 +636,19 @@ public class SwingGUI extends JFrame {
 		sPane.getViewport().add(list);
 
 	}
-	
+
 	private void clickJungle(JPanel pane) {
-		if (currC.equals("ANY")) {
+		if (currClimate.equals("ANY")) {
 			clickAny(pane);
-		} else if (currC.equals("TROPICAL")) {
+		} else if (currClimate.equals("TROPICAL")) {
 			clickTropical(pane);
-		} else if (currC.equals("SUBTROPICAL")) {
+		} else if (currClimate.equals("SUBTROPICAL")) {
 			clickSubTropical(pane);
-		} else if (currC.equals("TEMPERATE")) {
+		} else if (currClimate.equals("TEMPERATE")) {
 			clickTemperate(pane);
-		} else if (currC.equals("SUBARCTIC")) {
+		} else if (currClimate.equals("SUBARCTIC")) {
 			clickSubarctic(pane);
-		} else if (currC.equals("ARCTIC")) {
+		} else if (currClimate.equals("ARCTIC")) {
 			clickArctic(pane);
 		}
 		ArrayList<String> tempList = new ArrayList<String>();
@@ -645,17 +676,17 @@ public class SwingGUI extends JFrame {
 	}
 
 	private void clickHills(JPanel pane) {
-		if (currC.equals("ANY")) {
+		if (currClimate.equals("ANY")) {
 			clickAny(pane);
-		} else if (currC.equals("TROPICAL")) {
+		} else if (currClimate.equals("TROPICAL")) {
 			clickTropical(pane);
-		} else if (currC.equals("SUBTROPICAL")) {
+		} else if (currClimate.equals("SUBTROPICAL")) {
 			clickSubTropical(pane);
-		} else if (currC.equals("TEMPERATE")) {
+		} else if (currClimate.equals("TEMPERATE")) {
 			clickTemperate(pane);
-		} else if (currC.equals("SUBARCTIC")) {
+		} else if (currClimate.equals("SUBARCTIC")) {
 			clickSubarctic(pane);
-		} else if (currC.equals("ARCTIC")) {
+		} else if (currClimate.equals("ARCTIC")) {
 			clickArctic(pane);
 		}
 		ArrayList<String> tempList = new ArrayList<String>();
@@ -683,17 +714,17 @@ public class SwingGUI extends JFrame {
 	}
 
 	private void clickMountains(JPanel pane) {
-		if (currC.equals("ANY")) {
+		if (currClimate.equals("ANY")) {
 			clickAny(pane);
-		} else if (currC.equals("TROPICAL")) {
+		} else if (currClimate.equals("TROPICAL")) {
 			clickTropical(pane);
-		} else if (currC.equals("SUBTROPICAL")) {
+		} else if (currClimate.equals("SUBTROPICAL")) {
 			clickSubTropical(pane);
-		} else if (currC.equals("TEMPERATE")) {
+		} else if (currClimate.equals("TEMPERATE")) {
 			clickTemperate(pane);
-		} else if (currC.equals("SUBARCTIC")) {
+		} else if (currClimate.equals("SUBARCTIC")) {
 			clickSubarctic(pane);
-		} else if (currC.equals("ARCTIC")) {
+		} else if (currClimate.equals("ARCTIC")) {
 			clickArctic(pane);
 		}
 		ArrayList<String> tempList = new ArrayList<String>();
@@ -721,17 +752,17 @@ public class SwingGUI extends JFrame {
 	}
 
 	private void clickSwamp(JPanel pane) {
-		if (currC.equals("ANY")) {
+		if (currClimate.equals("ANY")) {
 			clickAny(pane);
-		} else if (currC.equals("TROPICAL")) {
+		} else if (currClimate.equals("TROPICAL")) {
 			clickTropical(pane);
-		} else if (currC.equals("SUBTROPICAL")) {
+		} else if (currClimate.equals("SUBTROPICAL")) {
 			clickSubTropical(pane);
-		} else if (currC.equals("TEMPERATE")) {
+		} else if (currClimate.equals("TEMPERATE")) {
 			clickTemperate(pane);
-		} else if (currC.equals("SUBARCTIC")) {
+		} else if (currClimate.equals("SUBARCTIC")) {
 			clickSubarctic(pane);
-		} else if (currC.equals("ARCTIC")) {
+		} else if (currClimate.equals("ARCTIC")) {
 			clickArctic(pane);
 		}
 		ArrayList<String> tempList = new ArrayList<String>();
@@ -759,17 +790,17 @@ public class SwingGUI extends JFrame {
 	}
 
 	private void clickDesert(JPanel pane) {
-		if (currC.equals("ANY")) {
+		if (currClimate.equals("ANY")) {
 			clickAny(pane);
-		} else if (currC.equals("TROPICAL")) {
+		} else if (currClimate.equals("TROPICAL")) {
 			clickTropical(pane);
-		} else if (currC.equals("SUBTROPICAL")) {
+		} else if (currClimate.equals("SUBTROPICAL")) {
 			clickSubTropical(pane);
-		} else if (currC.equals("TEMPERATE")) {
+		} else if (currClimate.equals("TEMPERATE")) {
 			clickTemperate(pane);
-		} else if (currC.equals("SUBARCTIC")) {
+		} else if (currClimate.equals("SUBARCTIC")) {
 			clickSubarctic(pane);
-		} else if (currC.equals("ARCTIC")) {
+		} else if (currClimate.equals("ARCTIC")) {
 			clickArctic(pane);
 		}
 		ArrayList<String> tempList = new ArrayList<String>();
@@ -797,17 +828,17 @@ public class SwingGUI extends JFrame {
 	}
 
 	private void clickSubterranian(JPanel pane) {
-		if (currC.equals("ANY")) {
+		if (currClimate.equals("ANY")) {
 			clickAny(pane);
-		} else if (currC.equals("TROPICAL")) {
+		} else if (currClimate.equals("TROPICAL")) {
 			clickTropical(pane);
-		} else if (currC.equals("SUBTROPICAL")) {
+		} else if (currClimate.equals("SUBTROPICAL")) {
 			clickSubTropical(pane);
-		} else if (currC.equals("TEMPERATE")) {
+		} else if (currClimate.equals("TEMPERATE")) {
 			clickTemperate(pane);
-		} else if (currC.equals("SUBARCTIC")) {
+		} else if (currClimate.equals("SUBARCTIC")) {
 			clickSubarctic(pane);
-		} else if (currC.equals("ARCTIC")) {
+		} else if (currClimate.equals("ARCTIC")) {
 			clickArctic(pane);
 		}
 		ArrayList<String> tempList = new ArrayList<String>();
@@ -834,17 +865,17 @@ public class SwingGUI extends JFrame {
 	}
 
 	private void clickAquatic(JPanel pane) {
-		if (currC.equals("ANY")) {
+		if (currClimate.equals("ANY")) {
 			clickAny(pane);
-		} else if (currC.equals("TROPICAL")) {
+		} else if (currClimate.equals("TROPICAL")) {
 			clickTropical(pane);
-		} else if (currC.equals("SUBTROPICAL")) {
+		} else if (currClimate.equals("SUBTROPICAL")) {
 			clickSubTropical(pane);
-		} else if (currC.equals("TEMPERATE")) {
+		} else if (currClimate.equals("TEMPERATE")) {
 			clickTemperate(pane);
-		} else if (currC.equals("SUBARCTIC")) {
+		} else if (currClimate.equals("SUBARCTIC")) {
 			clickSubarctic(pane);
-		} else if (currC.equals("ARCTIC")) {
+		} else if (currClimate.equals("ARCTIC")) {
 			clickArctic(pane);
 		}
 		ArrayList<String> tempList = new ArrayList<String>();
@@ -988,6 +1019,89 @@ public class SwingGUI extends JFrame {
 		revalidate();
 
 		return "ARCTIC";
+	}
+
+	private String clickDayActivity(JPanel pane) {
+
+		ArrayList<String> tempList = new ArrayList<String>();
+
+		for (int j = 0; j < fltrList.size(); j++) {
+			for (int i = 0; i < CreatureTable.ctypeTable.size(); i++) {
+				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
+					if (CreatureTable.ctypeTable.get(i).getActivityCycle().contains("Day")
+							|| CreatureTable.ctypeTable.get(i).getActivityCycle().contains("Any")) {
+						tempList.add(fltrList.get(j));
+
+						break;
+					}
+				}
+			}
+		}
+
+		fltrList = tempList;
+		String[] newList = fltrList.toArray(new String[fltrList.size()]);
+		this.list = new JList<String>(newList);
+
+		updateListListener(list);
+
+		sPane.getViewport().add(list);
+
+		return "DAY";
+	}
+
+	private String clickAnyActivity(JPanel pane) {
+
+		ArrayList<String> tempList = new ArrayList<String>();
+
+		for (int j = 0; j < fltrList.size(); j++) {
+			for (int i = 0; i < CreatureTable.ctypeTable.size(); i++) {
+				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
+					if (CreatureTable.ctypeTable.get(i).getActivityCycle().contains("Any")) {
+						tempList.add(fltrList.get(j));
+
+						break;
+					}
+				}
+			}
+		}
+
+		fltrList = tempList;
+		String[] newList = fltrList.toArray(new String[fltrList.size()]);
+		this.list = new JList<String>(newList);
+
+		updateListListener(list);
+
+		sPane.getViewport().add(list);
+
+		return "ANY";
+	}
+
+	private String clickNightActivity(JPanel pane) {
+
+		ArrayList<String> tempList = new ArrayList<String>();
+
+		for (int j = 0; j < fltrList.size(); j++) {
+			for (int i = 0; i < CreatureTable.ctypeTable.size(); i++) {
+				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
+					if (CreatureTable.ctypeTable.get(i).getActivityCycle().contains("Night")
+							|| CreatureTable.ctypeTable.get(i).getActivityCycle().contains("Any")) {
+						tempList.add(fltrList.get(j));
+
+						break;
+					}
+				}
+			}
+		}
+
+		fltrList = tempList;
+		String[] newList = fltrList.toArray(new String[fltrList.size()]);
+		this.list = new JList<String>(newList);
+
+		updateListListener(list);
+
+		sPane.getViewport().add(list);
+
+		return "NIGHT";
 	}
 
 	private void addListPopMenu(JList<String> list) {
@@ -1210,8 +1324,9 @@ public class SwingGUI extends JFrame {
 				if (!e.getValueIsAdjusting()) {
 					selEnc = (String) list.getSelectedValue();
 					selEncIndex = list.getSelectedIndex();
-//					labelEnc.setText("Number of Creatures: " + Integer.toString(list.getModel().getSize()));
-//					labelEnc.setText(selEnc);
+					// labelEnc.setText("Number of Creatures: " +
+					// Integer.toString(list.getModel().getSize()));
+					// labelEnc.setText(selEnc);
 				}
 			}
 		});

@@ -15,10 +15,11 @@ public class CreatureType {
 	public int hitDiceSpecial = 0;
 	public int hitDiceVariance = 0;
 	public int rarity = 0;
+	
+	public String activityCycle;
 
 	public ArrayList<String> specTerrainList = new ArrayList<String>();
 	public String organization;
-	public String activityCycle;
 	public String diet;
 	public String intelligence;
 	public String treasure;
