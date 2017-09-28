@@ -100,7 +100,7 @@ Cloaker Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 subterranean 6 8 0
 Cockatrice Tropical Sub-Tropical Temperate 1 6 plain forest jungle hill mountain swamp desert subterranean aquatic 5 8 0 0 2 Any
 Cockatrice(Pyrolisk) Tropical Sub-Tropical Temperate 1 4 plain forest jungle hill mountain swamp desert subterranean aquatic 6 8 2 0 3 Any
 Couatl Tropical Sub-Tropical 1 4 jungle 9 8 0 0 4 Any
-Crabman* Tropical Sub-Tropical Temperate 2 6 aqatic coast sea-coast beach 3 8 0 0 3 Any
+Crabman* Tropical Sub-Tropical Temperate 2 6 aquatic coast sea-coast beach 3 8 0 0 3 Any
 Crawling-Claw Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 20 plain forest jungle hill mountain swamp desert subterranean 2 2 0 0 3 Any
 Crocodile Tropical Sub-Tropical 3 8 swamp aquatic river 3 8 0 0 1 Day
 Crocodile(Giant) Tropical Sub-Tropical 1 1 swamp aquatic saltwater-swamp river 7 8 0 0 4 Day

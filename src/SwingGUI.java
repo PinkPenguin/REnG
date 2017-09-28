@@ -4,6 +4,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Point;
 import java.awt.event.ActionEvent;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.WindowAdapter;
@@ -11,6 +13,7 @@ import java.awt.event.WindowEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -37,8 +40,8 @@ public class SwingGUI extends JFrame {
 	public int selEncIndex = 0;
 
 	private ArrayList<String> fltrList = new ArrayList<String>();
-	
-	private JLabel TEST = new JLabel("TEST");
+
+	private String selectedSpecialTerrain = "NONE";
 
 	private String currClimate = "ANY";
 	private String currTerrain = "ANY";
@@ -65,12 +68,39 @@ public class SwingGUI extends JFrame {
 		createMenuBar();
 		createPopupMenu();
 
+		ArrayList<String> specialTerrainList = new ArrayList<>();
+		specialTerrainList.add("plain");
+		specialTerrainList.add("forest");
+		specialTerrainList.add("jungle");
+		specialTerrainList.add("hill");
+		specialTerrainList.add("mountain");
+		specialTerrainList.add("swamp");
+		specialTerrainList.add("desert");
+		specialTerrainList.add("subterranean");
+		specialTerrainList.add("aquatic");
+
 		CreatureTable.sort();
 		String[] crType = new String[CreatureTable.ctypeTable.size()];
 		for (int i = 0; i < CreatureTable.ctypeTable.size(); i++) {
 			crType[i] = CreatureTable.ctypeTable.get(i).getName();
 			fltrList.add(CreatureTable.ctypeTable.get(i).getName());
+
+			for (String t : CreatureTable.ctypeTable.get(i).getTerrainList()) {
+				if (!specialTerrainList.contains(t)) {
+					specialTerrainList.add(t);
+				}
+			}
 		}
+
+		specialTerrainList.remove("plain");
+		specialTerrainList.remove("forest");
+		specialTerrainList.remove("jungle");
+		specialTerrainList.remove("hill");
+		specialTerrainList.remove("mountain");
+		specialTerrainList.remove("swamp");
+		specialTerrainList.remove("desert");
+		specialTerrainList.remove("subterranean");
+		specialTerrainList.remove("aquatic");
 
 		this.list = new JList<String>(crType);
 		updateListListener(list);
@@ -113,7 +143,6 @@ public class SwingGUI extends JFrame {
 		JLabel fill6 = new JLabel("fill6");
 		JLabel fill7 = new JLabel("fill7");
 
-		JLabel fill3 = new JLabel("fill3");
 		JLabel fill8 = new JLabel("fill8");
 		// JLabel fill9 = new JLabel("fill9");
 		// JLabel fill10 = new JLabel("fill10");
@@ -122,11 +151,39 @@ public class SwingGUI extends JFrame {
 		// JLabel fill13 = new JLabel("fill13");
 
 		// JLabel fill8 = new JLabel("Number of Creatures: \n");
-		
+
+		JLabel terLabel = new JLabel("Terrain:");
+		JLabel specialTerrainLabel = new JLabel("Special Terrain:");
+
 		JLabel climate = new JLabel(currClimate);
 		JLabel terrain = new JLabel(currTerrain);
 		JLabel activity = new JLabel(currActivity);
-		
+
+		// String specialTerrain = "TEST";
+		Collections.sort(specialTerrainList);
+		JComboBox<String> terrainBox = new JComboBox<String>(
+				specialTerrainList.toArray(new String[specialTerrainList.size()]));
+		terrainBox.setEditable(true);
+		terrainBox.setSelectedItem(null);
+		terrainBox.setSize(50, 15);
+		terrainBox.addItemListener(new ItemListener() {
+
+			@Override
+			public void itemStateChanged(ItemEvent e) {
+
+				if (e.getStateChange() == ItemEvent.SELECTED) {
+					selectedSpecialTerrain = (String) e.getItem();
+				}
+			}
+
+		});
+
+		JButton specialFilter = new JButton("Filter");
+		specialFilter.addActionListener((ActionEvent e) -> {
+
+			clickSpecialFilter(pane, climate, terrain, activity, selectedSpecialTerrain);
+		});
+
 		label = new JLabel("Creature Types");
 		labelEnc = new JLabel("Creatures: \n");
 
@@ -145,7 +202,7 @@ public class SwingGUI extends JFrame {
 			currActivity = clickNightActivity(pane, activity);
 		});
 
-		JLabel climLabel = new JLabel("Filter Climate/Terrain:");
+		JLabel climLabel = new JLabel("Climate:");
 
 		JButton plainsB = new JButton("Plains");
 		JButton forestB = new JButton("Forest");
@@ -265,7 +322,7 @@ public class SwingGUI extends JFrame {
 		pane.add(climate, "flowy, aligny top, split 3");
 		pane.add(terrain);
 		pane.add(activity);
-		pane.add(fill2, "w 250");
+		pane.add(fill1, "w 250");
 		// pane.add(labelEnc, "w 250");
 		pane.add(labelEnc, "w 250");
 
@@ -274,9 +331,9 @@ public class SwingGUI extends JFrame {
 		pane.add(activityAny, "right");
 		pane.add(activityNight, "right");
 
-		pane.add(fill3, "flowy, aligny top, right");
+		pane.add(terLabel, "flowy, aligny top, right");
 
-		pane.add(climLabel, "flowy, aligny top, split 7");
+		pane.add(climLabel, "flowy, aligny top, right, split 7");
 
 		pane.add(anyButton, "right");
 		pane.add(tropButton, "right");
@@ -305,6 +362,11 @@ public class SwingGUI extends JFrame {
 		pane.add(desertB, "cell 5 0, right");
 		pane.add(subtB, "cell 5 0, right");
 		pane.add(aquaB, "cell 5 0, right");
+
+		pane.add(fill2, "cell 5 0, right");
+		pane.add(specialTerrainLabel, "cell 5 0, right");
+		pane.add(terrainBox, "cell 5 0, right");
+		pane.add(specialFilter, "cell 5 0 , right");
 
 		pane.add(spEnc, "flowy, left, cell 2 0");
 		pane.add(addEnc, "split 3, cell 2 1");
@@ -600,7 +662,7 @@ public class SwingGUI extends JFrame {
 		fltrList = tempList;
 		String[] newList = fltrList.toArray(new String[fltrList.size()]);
 		this.list = new JList<String>(newList);
-		
+
 		currTerrain = "PLAINS";
 		terrain.setText("PLAINS");
 
@@ -641,10 +703,9 @@ public class SwingGUI extends JFrame {
 		fltrList = tempList;
 		String[] newList = fltrList.toArray(new String[fltrList.size()]);
 		this.list = new JList<String>(newList);
-		
+
 		currTerrain = "FOREST";
 		terrain.setText("FOREST");
-
 
 		updateListListener(list);
 
@@ -683,10 +744,9 @@ public class SwingGUI extends JFrame {
 		fltrList = tempList;
 		String[] newList = fltrList.toArray(new String[fltrList.size()]);
 		this.list = new JList<String>(newList);
-		
+
 		currTerrain = "JUNGLE";
 		terrain.setText("JUNGLE");
-
 
 		updateListListener(list);
 
@@ -725,10 +785,9 @@ public class SwingGUI extends JFrame {
 		fltrList = tempList;
 		String[] newList = fltrList.toArray(new String[fltrList.size()]);
 		this.list = new JList<String>(newList);
-		
+
 		currTerrain = "HILLS";
 		terrain.setText("HILLS");
-
 
 		updateListListener(list);
 
@@ -767,10 +826,9 @@ public class SwingGUI extends JFrame {
 		fltrList = tempList;
 		String[] newList = fltrList.toArray(new String[fltrList.size()]);
 		this.list = new JList<String>(newList);
-		
+
 		currTerrain = "MOUNTAINS";
 		terrain.setText("MOUNTAINS");
-
 
 		updateListListener(list);
 
@@ -809,10 +867,9 @@ public class SwingGUI extends JFrame {
 		fltrList = tempList;
 		String[] newList = fltrList.toArray(new String[fltrList.size()]);
 		this.list = new JList<String>(newList);
-		
+
 		currTerrain = "SWAMP";
 		terrain.setText("SWAMP");
-
 
 		updateListListener(list);
 
@@ -851,10 +908,9 @@ public class SwingGUI extends JFrame {
 		fltrList = tempList;
 		String[] newList = fltrList.toArray(new String[fltrList.size()]);
 		this.list = new JList<String>(newList);
-		
+
 		currTerrain = "DESERT";
 		terrain.setText("DESERT");
-
 
 		updateListListener(list);
 
@@ -893,10 +949,9 @@ public class SwingGUI extends JFrame {
 		fltrList = tempList;
 		String[] newList = fltrList.toArray(new String[fltrList.size()]);
 		this.list = new JList<String>(newList);
-		
+
 		currTerrain = "SUBTERRANEAN";
 		terrain.setText("SUBTERRANEAN");
-
 
 		updateListListener(list);
 
@@ -934,10 +989,9 @@ public class SwingGUI extends JFrame {
 		fltrList = tempList;
 		String[] newList = fltrList.toArray(new String[fltrList.size()]);
 		this.list = new JList<String>(newList);
-		
+
 		currTerrain = "AQUATIC";
 		terrain.setText("AQUATIC");
-
 
 		updateListListener(list);
 
@@ -959,7 +1013,7 @@ public class SwingGUI extends JFrame {
 		terrain.setText("ANY");
 		currActivity = "ANY";
 		activity.setText("ANY");
-		
+
 		updateListListener(list);
 
 		sPane.getViewport().add(this.list);
@@ -980,7 +1034,7 @@ public class SwingGUI extends JFrame {
 		}
 		String[] newList = fltrList.toArray(new String[fltrList.size()]);
 		this.list = new JList<String>(newList);
-		
+
 		currClimate = "TROPICAL";
 		currTerrain = "ANY";
 		climate.setText(currClimate);
@@ -1007,7 +1061,7 @@ public class SwingGUI extends JFrame {
 		}
 		String[] newList = fltrList.toArray(new String[fltrList.size()]);
 		this.list = new JList<String>(newList);
-		
+
 		currClimate = "SUB-TROPICAL";
 		climate.setText(currClimate);
 		currTerrain = "ANY";
@@ -1041,7 +1095,7 @@ public class SwingGUI extends JFrame {
 		terrain.setText("ANY");
 		currActivity = "ANY";
 		activity.setText("ANY");
-		
+
 		updateListListener(list);
 
 		sPane.getViewport().add(this.list);
@@ -1126,7 +1180,7 @@ public class SwingGUI extends JFrame {
 		fltrList = tempList;
 		String[] newList = fltrList.toArray(new String[fltrList.size()]);
 		this.list = new JList<String>(newList);
-		
+
 		activity.setText("DAY");
 
 		updateListListener(list);
@@ -1135,10 +1189,9 @@ public class SwingGUI extends JFrame {
 
 		return "DAY";
 	}
-	
 
 	private String clickAnyActivity(JPanel pane, JLabel activity) {
-		//TODO: this really shouldnt do anything
+		// TODO: this really shouldnt do anything
 		ArrayList<String> tempList = new ArrayList<String>();
 
 		for (int j = 0; j < fltrList.size(); j++) {
@@ -1156,7 +1209,7 @@ public class SwingGUI extends JFrame {
 		fltrList = tempList;
 		String[] newList = fltrList.toArray(new String[fltrList.size()]);
 		this.list = new JList<String>(newList);
-		
+
 		activity.setText("ANY");
 
 		updateListListener(list);
@@ -1165,7 +1218,6 @@ public class SwingGUI extends JFrame {
 
 		return "ANY";
 	}
-	
 
 	private String clickNightActivity(JPanel pane, JLabel activity) {
 
@@ -1195,6 +1247,49 @@ public class SwingGUI extends JFrame {
 		sPane.getViewport().add(list);
 
 		return "NIGHT";
+	}
+
+	private void clickSpecialFilter(JPanel pane, JLabel climate, JLabel terrain, JLabel activity,
+			String specialTerrain) {
+
+		if (currClimate.equals("ANY")) {
+			clickAny(pane, climate, terrain, activity);
+		} else if (currClimate.equals("TROPICAL")) {
+			clickTropical(pane, climate, terrain, activity);
+		} else if (currClimate.equals("SUB-TROPICAL")) {
+			clickSubTropical(pane, climate, terrain, activity);
+		} else if (currClimate.equals("TEMPERATE")) {
+			clickTemperate(pane, climate, terrain, activity);
+		} else if (currClimate.equals("SUB-ARCTIC")) {
+			clickSubarctic(pane, climate, terrain, activity);
+		} else if (currClimate.equals("ARCTIC")) {
+			clickArctic(pane, climate, terrain, activity);
+		}
+		ArrayList<String> tempList = new ArrayList<String>();
+
+		for (int j = 0; j < fltrList.size(); j++) {
+			for (int i = 0; i < CreatureTable.ctypeTable.size(); i++) {
+				if (CreatureTable.ctypeTable.get(i).getName().equals(fltrList.get(j))) {
+					if (CreatureTable.ctypeTable.get(i).getTerrainList().contains(specialTerrain)) {
+						tempList.add(fltrList.get(j));
+
+						break;
+					}
+				}
+			}
+		}
+
+		fltrList = tempList;
+		String[] newList = fltrList.toArray(new String[fltrList.size()]);
+		this.list = new JList<String>(newList);
+
+		currTerrain = specialTerrain;
+		terrain.setText(specialTerrain);
+
+		updateListListener(list);
+
+		sPane.getViewport().add(list);
+
 	}
 
 	private void addListPopMenu(JList<String> list) {
@@ -1406,7 +1501,6 @@ public class SwingGUI extends JFrame {
 			}
 		});
 
-		
 		addListPopMenu(list);
 	}
 
