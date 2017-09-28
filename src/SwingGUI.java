@@ -136,15 +136,15 @@ public class SwingGUI extends JFrame {
 			clickPopout(spEnc, listEnc, pane);
 		});
 
-		JLabel fill1 = new JLabel("fill1");
-		JLabel fill2 = new JLabel("fill2");
-		JLabel fill4 = new JLabel("fill4");
-		JLabel fill5 = new JLabel("fill5");
-		JLabel fill6 = new JLabel("fill6");
-		JLabel fill7 = new JLabel("fill7");
+		JLabel fill1 = new JLabel(" ");
+		JLabel fill2 = new JLabel(" ");
+		JLabel fill4 = new JLabel(" ");
+		JLabel fill5 = new JLabel(" ");
+		JLabel fill6 = new JLabel(" ");
+		JLabel fill7 = new JLabel(" ");
 
-		JLabel fill8 = new JLabel("fill8");
-		// JLabel fill9 = new JLabel("fill9");
+		JLabel fill8 = new JLabel(" ");
+		JLabel creatureCountLabel = new JLabel("Creatures:");
 		// JLabel fill10 = new JLabel("fill10");
 		// JLabel fill11 = new JLabel("fill11");
 		// JLabel fill12 = new JLabel("fill12");
@@ -185,19 +185,22 @@ public class SwingGUI extends JFrame {
 		});
 
 		label = new JLabel("Creature Types");
-		labelEnc = new JLabel("Creatures: \n");
+		labelEnc = new JLabel("");
 
 		JLabel activityLabel = new JLabel("Activity Cycle:");
 
 		JButton activityDay = new JButton("Day");
+		activityDay.setPreferredSize(new Dimension(70, 20));
 		activityDay.addActionListener((ActionEvent e) -> {
 			currActivity = clickDayActivity(pane, activity);
 		});
 		JButton activityAny = new JButton("Any");
+		activityAny.setPreferredSize(new Dimension(70, 20));
 		activityAny.addActionListener((ActionEvent e) -> {
 			currActivity = clickAnyActivity(pane, activity);
 		});
 		JButton activityNight = new JButton("Night");
+		activityNight.setPreferredSize(new Dimension(70, 20));
 		activityNight.addActionListener((ActionEvent e) -> {
 			currActivity = clickNightActivity(pane, activity);
 		});
@@ -205,14 +208,23 @@ public class SwingGUI extends JFrame {
 		JLabel climLabel = new JLabel("Climate:");
 
 		JButton plainsB = new JButton("Plains");
+		plainsB.setPreferredSize(new Dimension(115, 30));
 		JButton forestB = new JButton("Forest");
+		forestB.setPreferredSize(new Dimension(115, 30));
 		JButton jungleB = new JButton("Jungle");
+		jungleB.setPreferredSize(new Dimension(115, 30));
 		JButton hillsB = new JButton("Hills");
+		hillsB.setPreferredSize(new Dimension(115, 30));
 		JButton mountainsB = new JButton("Mountains");
+		mountainsB.setPreferredSize(new Dimension(115, 30));
 		JButton swampB = new JButton("Swamp");
+		swampB.setPreferredSize(new Dimension(115, 30));
 		JButton desertB = new JButton("Desert");
+		desertB.setPreferredSize(new Dimension(115, 30));
 		JButton subtB = new JButton("Subterranean");
+		subtB.setPreferredSize(new Dimension(115, 30));
 		JButton aquaB = new JButton("Aquatic");
+		aquaB.setPreferredSize(new Dimension(115, 30));
 
 		plainsB.addActionListener((ActionEvent e) -> {
 			selType = "Creature Type";
@@ -268,12 +280,14 @@ public class SwingGUI extends JFrame {
 		});
 
 		JButton anyButton = new JButton("Any");
+		anyButton.setPreferredSize(new Dimension(115, 30));
 		anyButton.addActionListener((ActionEvent e) -> {
 			selType = "Creature Type";
 			label.setText(selType);
 			clickAny(pane, climate, terrain, activity);
 		});
 		JButton tropButton = new JButton("Tropical");
+		tropButton.setPreferredSize(new Dimension(115, 30));
 		tropButton.addActionListener((ActionEvent e) -> {
 			selType = "Creature Type";
 			label.setText(selType);
@@ -281,6 +295,7 @@ public class SwingGUI extends JFrame {
 			clickTropical(pane, climate, terrain, activity);
 		});
 		JButton subtropButton = new JButton("Sub-Tropical");
+		subtropButton.setPreferredSize(new Dimension(115, 30));
 		subtropButton.addActionListener((ActionEvent e) -> {
 			selType = "Creature Type";
 			label.setText(selType);
@@ -288,6 +303,7 @@ public class SwingGUI extends JFrame {
 			clickSubTropical(pane, climate, terrain, activity);
 		});
 		JButton tempButton = new JButton("Temperate");
+		tempButton.setPreferredSize(new Dimension(115, 30));
 		tempButton.addActionListener((ActionEvent e) -> {
 			selType = "Creature Type";
 			label.setText(selType);
@@ -295,6 +311,7 @@ public class SwingGUI extends JFrame {
 			clickTemperate(pane, climate, terrain, activity);
 		});
 		JButton subaButton = new JButton("Sub-Arctic");
+		subaButton.setPreferredSize(new Dimension(115, 30));
 		subaButton.addActionListener((ActionEvent e) -> {
 			selType = "Creature Type";
 			label.setText(selType);
@@ -302,6 +319,7 @@ public class SwingGUI extends JFrame {
 			clickSubarctic(pane, climate, terrain, activity);
 		});
 		JButton arctButton = new JButton("Arctic");
+		arctButton.setPreferredSize(new Dimension(115, 30));
 		arctButton.addActionListener((ActionEvent e) -> {
 			selType = "Creature Type";
 			label.setText(selType);
@@ -324,7 +342,8 @@ public class SwingGUI extends JFrame {
 		pane.add(activity);
 		pane.add(fill1, "w 250");
 		// pane.add(labelEnc, "w 250");
-		pane.add(labelEnc, "w 250");
+		pane.add(creatureCountLabel, "flowy, aligny top, left, split 2, w 250");
+		pane.add(labelEnc);
 
 		pane.add(activityLabel, "flowy, aligny top, right, split 4");
 		pane.add(activityDay, "right");
@@ -383,7 +402,7 @@ public class SwingGUI extends JFrame {
 
 				enc.generateEncounter(CreatureTable.ctypeTable.get(i));
 				listEnc = new JList<String>(enc.print());
-				labelEnc.setText("Creatures: " + Integer.toString(listEnc.getModel().getSize()));
+				labelEnc.setText(Integer.toString(listEnc.getModel().getSize()));
 				// labelEnc = new
 				// JLabel(Integer.toString(listEnc.getModel().getSize()));
 
@@ -488,7 +507,7 @@ public class SwingGUI extends JFrame {
 		}
 		listEnc = new JList<String>(enc.print());
 
-		labelEnc.setText("Creatures: " + Integer.toString(listEnc.getModel().getSize()));
+		labelEnc.setText(Integer.toString(listEnc.getModel().getSize()));
 
 		updateEncListListener(listEnc);
 
@@ -505,7 +524,7 @@ public class SwingGUI extends JFrame {
 		}
 		listEnc = new JList<String>(enc.print());
 
-		labelEnc.setText("Number of Creatures: " + Integer.toString(listEnc.getModel().getSize()));
+		labelEnc.setText(Integer.toString(listEnc.getModel().getSize()));
 
 		updateEncListListener(listEnc);
 
@@ -602,7 +621,7 @@ public class SwingGUI extends JFrame {
 			}
 			listEnc = new JList<String>(enc.print());
 
-			labelEnc.setText("Creatures: " + Integer.toString(listEnc.getModel().getSize()));
+			labelEnc.setText(Integer.toString(listEnc.getModel().getSize()));
 
 			updateEncListListener(listEnc);
 
