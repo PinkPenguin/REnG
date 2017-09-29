@@ -2,13 +2,13 @@ Aarakocra Tropical Sub-Tropical Temperate 1 10 mountains 1 8 2 0 4 Day
 Aboleth Tropical Sub-Tropical Temperate 1 4 subterranean 8 8 0 0 4 Night
 Ankheg Tropical Sub-Tropical Temperate 1 6 plain forest 3 8 0 6 3 Any
 Arcane Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean aquatic 10 8 0 0 4 Any
-Argos* Space 1 1 Earth-based-Body 5 8 0 6 4 Any
+Argos* Space 1 1 earth-based-Body 5 8 0 6 4 Any
 Aurumvorax Temperate 1 1 hill 12 8 0 0 4 Day
 
-Baatezu(Pit-Fiend) The-Nine-Hells 1 4 NONE 13 8 0 0 4 Any
-Baatezu(Black-Abishai) The-Nine-Hells 2 10 NONE 4 8 1 0 1 Any
-Baatezu(Green-Abishai) The-Nine-Hells 2 4 NONE 5 8 2 0 1 Any
-Baatezu(Red-Abishai) The-Nine-Hells 1 1 NONE 6 8 3 0 1 Any
+Baatezu(Pit-Fiend) The-Nine-Hells 1 4 the-nine-hells 13 8 0 0 4 Any
+Baatezu(Black-Abishai) The-Nine-Hells 2 10 the-nine-hells 4 8 1 0 1 Any
+Baatezu(Green-Abishai) The-Nine-Hells 2 4 the-nine-hells 5 8 2 0 1 Any
+Baatezu(Red-Abishai) The-Nine-Hells 1 1 the-nine-hells 6 8 3 0 1 Any
 Banshee Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 1 plain forest jungle hill mountain swamp desert subterranean aquatic 7 8 0 0 4 Night
 Basilisk(Lesser) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 1 4 plain forest jungle hill mountain swamp desert subterranean 6 8 1 0 2 Day
 Basilisk(Greater) Tropical Sub-Tropical Temperate Sub-Arctic Arctic 2 4 -1 plain forest jungle hill mountain swamp desert subterranean 10 8 0 0 4 Day
@@ -483,7 +483,7 @@ Mammal(Sleek)* Temperate 1 10 forest subterranean ship 2 8 1 0 2 Night
 Mammal(Stag,Wild) Temperate 1 4 plain forest hill mountain 3 8 0 0 1 Day
 Mammal(Stag,Giant)* Temperate 1 2 plain forest hill mountain 5 8 0 0 3 Day
 Mammal(Stag,The-White-Stag)* Temperate 1 1 plain forest hill mountain 10 8 0 0 4 Any
-Mammal(Stench-Kow)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 15 4 The-Nine-Hells 3 8 3 0 1 Any
+Mammal(Stench-Kow)* Tropical Sub-Tropical Temperate Sub-Arctic Arctic 15 4 the-nine-hells 3 8 3 0 1 Any
 Mammal(Taer)* Sub-Arctic Arctic 2 10 mountain 3 8 6 0 4 Day
 Mammal(Tyrg)* Tropical Sub-Tropical Temperate Sub-Arctic 1 10 forest hill mountain 5 8 0 4 3 Any
 Mammal(Boar,Warthog) Tropical Sub-Tropical 1 6 plain forest hill desert subterranean cave 3 8 0 0 1 Day
