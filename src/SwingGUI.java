@@ -590,12 +590,17 @@ public class SwingGUI extends JFrame {
 				}
 			}
 
+			//TODO: warning persisting is sort of bad
 			if (contains == 0 && !warning.isVisible()) {
 				warning.setVisible(true);
 				// contains = 2;
 			} else if (warning.isVisible() && !hpfield.getText().equals("")) {
 				try {
-					c = new Creature(boxsel, Integer.parseInt(hpfield.getText()), 0);
+					int hd = 0;
+					if(hdBox.getSelectedItem() != null){
+						hd = Integer.parseInt((String) hdBox.getSelectedItem());
+					}
+					c = new Creature(boxsel, Integer.parseInt(hpfield.getText()), hd);
 				} catch (NumberFormatException er) {
 					JOptionPane.showMessageDialog(null, "Invalid HP input!");
 					return;
