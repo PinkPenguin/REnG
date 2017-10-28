@@ -1,26 +1,27 @@
 
 public class Creature {
-	
+
 	public String name;
 	public int hp;
 	public int hd;
-	
-	public Creature(){
-		
+
+	public Creature() {
+
 	}
-	
-	public Creature(String name, int hp, int hd){
+
+	public Creature(String name, int hp, int hd) {
 		this.name = name;
 		this.hp = hp;
 		this.hd = hd;
 	}
-	
-	//================== Setters and getters start =====================
 
-	public void setName(String name){
+	// ================== Setters and getters start =====================
+
+	public void setName(String name) {
 		this.name = name;
 	}
-	public void setHP(int hp){
+
+	public void setHP(int hp) {
 		this.hp = hp;
 	}
 
@@ -36,9 +37,8 @@ public class Creature {
 		return hd;
 	}
 
-
 	public void setHd(int hd) {
 		this.hd = hd;
 	}
-	
+
 }

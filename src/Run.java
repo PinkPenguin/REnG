@@ -37,7 +37,7 @@ public class Run {
 				/* Fill rest of No.App and hit dice numbers */
 				ct.setAppDice(scan.nextInt());
 				ct.setAppDiceType(scan.nextInt());
-				if(scan.hasNextInt()){
+				if (scan.hasNextInt()) {
 					ct.setAppDiceSpecial(scan.nextInt());
 				}
 
@@ -54,7 +54,7 @@ public class Run {
 				ct.setHitDiceVariance(scan.nextInt());
 
 				ct.setRarity(scan.nextInt());
-				
+
 				ct.setActivityCycle(scan.next());
 
 				/* Add the Creature Type to the general Creature Table */
@@ -72,7 +72,7 @@ public class Run {
 				String name = scan.next();
 				for (int i = 0; i < CreatureTable.ctypeTable.size(); i++) {
 					CreatureType ct = CreatureTable.ctypeTable.get(i);
-					if(name.equals(ct.getName())){
+					if (name.equals(ct.getName())) {
 						ct.setOrganization(scan.next());
 						ct.setActivityCycle(scan.next());
 						ct.setDiet(scan.next());
@@ -91,7 +91,7 @@ public class Run {
 						ct.setMorale(scan.next());
 						ct.setXp(scan.next());
 						ct.setSpRules(scan.next());
-						
+
 						break;
 					}
 				}

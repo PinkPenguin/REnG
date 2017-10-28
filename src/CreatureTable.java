@@ -14,7 +14,7 @@ public final class CreatureTable {
 		CreatureTable.ctypeTable.add(ct);
 	}
 	
-	public static void sort(){
+	public static void sort() {
 		Collections.sort(ctypeTable, (n1, n2) -> n1.getName().compareTo(n2.getName()));
 	}
 }

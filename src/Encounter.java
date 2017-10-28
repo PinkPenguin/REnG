@@ -18,8 +18,8 @@ public class Encounter {
 	// TODO: memory leak
 	public void removeAll() {
 		this.crList.clear();
-//		this.crList = new ArrayList<Creature>();
-//		System.gc();
+		// this.crList = new ArrayList<Creature>();
+		// System.gc();
 	}
 
 	// TODO: Shit name for method

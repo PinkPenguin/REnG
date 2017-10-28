@@ -9,13 +9,13 @@ public class CreatureType {
 	public int appDice = 0;
 	public int appDiceType = 0;
 	public int appDiceSpecial = 0;
-	
+
 	public int hitDice = 0;
 	public int hitDiceType = 0;
 	public int hitDiceSpecial = 0;
 	public int hitDiceVariance = 0;
 	public int rarity = 0;
-	
+
 	public String activityCycle;
 
 	public ArrayList<String> specTerrainList = new ArrayList<String>();
@@ -43,16 +43,17 @@ public class CreatureType {
 
 	}
 
-//	public CreatureType(String name, ArrayList<String> climateList, int appDice, int appDiceType, int hitDice,
-//			int hitDiceType, int hitDiceSpecial) {
-//		this.name = name;
-//		this.climateList = climateList;
-//		this.appDice = appDice;
-//		this.appDiceType = appDiceType;
-//		this.hitDice = hitDice;
-//		this.hitDiceType = hitDiceType;
-//		this.hitDiceSpecial = hitDiceSpecial;
-//	}
+	// public CreatureType(String name, ArrayList<String> climateList, int
+	// appDice, int appDiceType, int hitDice,
+	// int hitDiceType, int hitDiceSpecial) {
+	// this.name = name;
+	// this.climateList = climateList;
+	// this.appDice = appDice;
+	// this.appDiceType = appDiceType;
+	// this.hitDice = hitDice;
+	// this.hitDiceType = hitDiceType;
+	// this.hitDiceSpecial = hitDiceSpecial;
+	// }
 
 	public Creature rollCreature() {
 		Random rng = new Random();
@@ -67,10 +68,10 @@ public class CreatureType {
 		}
 		hp += this.hitDiceSpecial;
 
-		if(hp <= 0){
+		if (hp <= 0) {
 			hp = 1;
 		}
-		
+
 		return new Creature(this.name, hp, hd);
 	}
 

@@ -32,7 +32,7 @@ public class SwingGUI extends JFrame {
 	private JScrollPane sPane;
 	private JScrollPane spEnc;
 	public JList<String> list;
-	public JList<String> listEnc;
+	public JList<String> listEnc = new JList<String>();
 	public Encounter enc = new Encounter();
 	public String selType = "Creature Type";
 	public String selEnc = "Creature";
@@ -120,7 +120,7 @@ public class SwingGUI extends JFrame {
 		});
 
 		spEnc = new JScrollPane();
-		spEnc.setPreferredSize(new Dimension(266, 1200));
+		spEnc.setPreferredSize(new Dimension(285, 1200));
 		spEnc.getViewport().add(this.listEnc);
 
 		JButton addEnc = new JButton("Add");
